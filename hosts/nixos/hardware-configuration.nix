@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   modulesPath,
   ...
 }:
@@ -9,6 +10,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   services.udev.extraRules = ''
@@ -27,27 +29,68 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/514850d8-76db-4de9-82e8-c6986490ac95";
-    fsType = "ext4";
+    fsType = "tmpfs";
+    options = ["size=6G"];
   };
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/f117c2b9-d26a-47ba-9ecd-366dafd1ab59";
-    fsType = "ext4";
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/YOUR_NVME_BTRFS_UUID"; # <--- UUID of your NVMe Btrfs pool
+    fsType = "btrfs";
+    options = [ "subvol=persist" "compress=zstd" "noatime" ]; # Mount the 'persist' subvolume
+  };
+
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/YOUR_4TB_HDD_UUID"; # <--- Replace with actual UUID
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ]; 
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3512-8801";
+    device = "/dev/disk/by-uuid/YOUR_EFI_PARTITION_UUID"; # <--- Replace with actual UUID
     fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/6c6ddaba-a2e4-45bc-a221-e5f85ba747ba"; }
-  ];
+  environment.persistence."/persist" = { # Link to the /persist mountpoint above
+      directories = [
+        "/nix"             # Crucial: the Nix store must be persistent
+        "/var/log"         # System logs
+        "/var/lib/nix"     # Nix database and other mutable state
+        "/var/cache/nix"   # Nix build cache (if you want to persist it)
+        "/var/lib/bluetooth" # Bluetooth device pairings
+        "/var/lib/NetworkManager" # Network configurations
+        "/var/lib/colord"
+        "/var/lib/systemd/coredump"
+        "/etc/NetworkManager/system-connections"
+      ];
+
+      files = [
+        "/etc/machine-id"
+        "/etc/ssh/ssh_host_ecdsa_key"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_rsa_key"
+        # Add any other system-wide files you need to persist
+        { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      ];
+
+      # --- User-specific Persistent Directories (for user 'cabero') ---
+      # These directories will be stored under /persist/home/cabero/ and then
+      # bind-mounted into /home/cabero/ on the ephemeral root.
+      users.cabero = {
+        directories = [
+          ".cargo"
+          ".config/google-chrome"
+          ".ssh"
+          ".gnupg"
+          ".password-store"
+          ".cache/wal"
+          ".config/awesome"
+          ".wallpaper"
+          ".screenlayout.sh"
+          ".bash_history"
+          ".zsh_history"
+        ];
+      };
+    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

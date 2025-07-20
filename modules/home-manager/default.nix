@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    # ./atuin
     ./bat
     ./bottom
     ./caffeine
@@ -19,7 +18,6 @@
     ./organize
     ./pueue
     ./redshift
-    # ./rofi
     ./ssh
     ./starship
     ./xdg

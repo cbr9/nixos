@@ -59,7 +59,6 @@ in
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
-      black
       clippy
       nixd
       delve
@@ -71,14 +70,10 @@ in
       nodePackages.bash-language-server
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
-      pyright
-      python311Packages.python-lsp-server
       ruff
-      python313Packages.jedi-language-server
       shellcheck
       taplo
       rust-analyzer
-      texlab
       lldb
       tinymist
     ];

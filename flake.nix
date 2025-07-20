@@ -13,6 +13,7 @@
     };
     organize.url = "github:cbr9/organizer";
     agenix.url = "github:ryantm/agenix";
+    impermanence.url = "github:nix-community/impermanence";
     # stylix.url = "github:danth/stylix";
   };
 
