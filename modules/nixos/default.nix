@@ -2,20 +2,15 @@
 {
   imports = [
     ./1password
-    # ./awesome
     ./spotify
     ./base
-    ./betterlockscreen
-    ./clipmenu
     ./fish
     ./fonts
     ./hardware
     ./kdeconnect
     ./nix
     ./nushell
-    ./openrgb
-    ./picom
-    # ./stylix
+    # ./openrgb
   ];
 
   environment = {

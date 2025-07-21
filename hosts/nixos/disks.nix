@@ -1,13 +1,5 @@
 { lib, ... }:
 {
-  boot.loader.grub = {
-    enable = lib.mkForce true;
-    efiSupport = lib.mkForce true;
-    efiInstallAsRemovable = lib.mkForce true;
-    useOSProber = true;
-    device = lib.mkForce "nodev";
-  };
-
   disko.devices = {
     disk = {
       sda = {

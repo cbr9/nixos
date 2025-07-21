@@ -51,15 +51,14 @@ in
       specialArgs = { inherit inputs system; };
 
       modules = [
-        disko.nixosModules.disko
+        # disko.nixosModules.disko
         agenix.nixosModules.default
         # stylix.nixosModules.stylix
-        nur.nixosModules.nur
+        nur.modules.nixos.default
 
         (
           {
             modulesPath,
-            config,
             pkgs,
             ...
           }:
@@ -85,6 +84,7 @@ in
 
               hardware = {
                 i2c.enable = true;
+                sane.enable = true;
               };
 
               networking = {
@@ -99,6 +99,9 @@ in
                 # Enable CUPS to print documents.
                 printing = {
                   enable = true;
+                  drivers = [ pkgs.cnijfilter2 ];
+                  cups-pdf.enable = false;
+                  startWhenNeeded = true;
                   browsing = true;
                   browsedConf = ''
                     BrowseDNSSDSubTypes _cups,_print

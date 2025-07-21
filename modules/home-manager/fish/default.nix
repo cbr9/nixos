@@ -29,7 +29,7 @@
           source ${HOME}/.nix-profile/etc/profile.d/nix.fish
         end
 
-        if test -f ${HOME}/.config/op/plugins
+        if test -f ${HOME}/.config/op/plugins.sh
           source ${HOME}/.config/op/plugins.sh
         end
       '';

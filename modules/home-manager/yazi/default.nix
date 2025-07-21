@@ -17,5 +17,6 @@
     enableNushellIntegration = true;
     enableZshIntegration = true;
     initLua = ./init.lua;
+    package = pkgs.unstable.yazi;
   };
 }

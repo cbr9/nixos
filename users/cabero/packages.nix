@@ -3,10 +3,9 @@ let
   cli = with pkgs; [
     agenix
     du-dust
+    awscli
     dysk
     fd
-    fend
-    jc
     just
     ouch
     uv
@@ -16,14 +15,10 @@ let
     sox
     typst
     watchexec
-    xclip
   ];
 
   gui = with pkgs; [
     appimage-run
-    arandr
-    evince
-    feh
     gparted
     google-chrome
     meld
@@ -31,7 +26,6 @@ let
     spotify
     vlc
     webtorrent_desktop
-    zoom-us
     insync
     obsidian
   ];

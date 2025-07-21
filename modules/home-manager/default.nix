@@ -3,21 +3,21 @@
   imports = [
     ./bat
     ./bottom
-    ./caffeine
+    # ./caffeine
     ./direnv
     ./fish
     ./fzf
     ./git
     ./helix
-    ./kitty
+    # ./kitty
     ./lazygit
     ./lsd
-    ./man
+    # ./man
     ./nix
     ./nushell
-    ./organize
+    # ./organize
     ./pueue
-    ./redshift
+    # ./redshift
     ./ssh
     ./starship
     ./xdg
