@@ -45,6 +45,9 @@ in
 
   home-manager.users.cabero = {
     home.stateVersion = stateVersion;
+    home.sessionPath = [
+      "$HOME/.local/bin"
+    ];
     programs.git = {
       extraConfig = {
         user = {
@@ -58,6 +61,8 @@ in
     };
     home.packages = with pkgs; [
       awscli
+      cmake
+      file
       glow
       conan
       ant
@@ -97,6 +102,7 @@ in
     docker-desktop.enable = true;
   };
 
+  networking.hostName = "dagobah";
   security.pki.certificates = [
     (builtins.readFile certificate)
   ];

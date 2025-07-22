@@ -52,7 +52,7 @@
             ];
           };
           # work laptop
-          nixos = lib.nixosSystem rec {
+          dagobah = lib.nixosSystem rec {
             inherit lib;
             system = "x86_64-linux";
             specialArgs = { inherit inputs system; };
@@ -62,7 +62,6 @@
               (
                 { ... }:
                 {
-                  networking.hostName = "nixos";
                   imports = [ ./hosts/dagobah ];
                 }
               )
