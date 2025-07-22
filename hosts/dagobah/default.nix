@@ -66,7 +66,6 @@ in
   users.users.cabero = {
     createHome = true;
     isNormalUser = true;
-    initialPassword = "1234";
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };
@@ -74,6 +73,7 @@ in
   environment.shellAliases = {
     ssh-add = "ssh-add.exe";
     ssh = "ssh.exe";
+    op = "op.exe";
   };
 
   programs._1password.enable = lib.mkForce false;
