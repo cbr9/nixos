@@ -50,6 +50,7 @@ in
     };
     home.packages = with pkgs; [
       awscli
+      glow
       conan
       ant
       dysk

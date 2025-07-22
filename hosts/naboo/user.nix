@@ -32,10 +32,6 @@
   };
 
   home-manager.users.cabero = {
-    imports = [
-      ../../modules/home-manager
-      ./packages.nix
-    ];
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";
@@ -43,6 +39,7 @@
       packages = with pkgs; [
         # CLI
         appimage-run
+        glow
         kalker
         just
         du-dust
