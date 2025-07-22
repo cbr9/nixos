@@ -6,6 +6,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 let
@@ -34,6 +35,13 @@ in
     ../../modules/yazi
     ../../modules/zoxide
   ];
+
+  home-manager.users.root = {
+    programs.helix = config.home-manager.users.cabero.programs.helix;
+    programs.yazi = config.home-manager.users.cabero.programs.yazi;
+    home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
+    programs.home-manager.enable = true;
+  };
 
   home-manager.users.cabero = {
     home.stateVersion = stateVersion;
