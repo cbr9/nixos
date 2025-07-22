@@ -2,15 +2,13 @@
   inputs = {
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "nixpkgs/nixos-25.05";
-    nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # organize.url = "github:cbr9/organizer";
     agenix.url = "github:ryantm/agenix";
     impermanence.url = "github:nix-community/impermanence";
-    # stylix.url = "github:danth/stylix";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs =
@@ -22,14 +20,74 @@
       pkgs = inputs.nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations = lib.mkHosts [ "nixos" ] system inputs;
+      nixosConfigurations =
+        with inputs;
+        with builtins;
+        {
+          naboo = lib.nixosSystem rec {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs system; };
+
+            modules = [
+              agenix.nixosModules.default
+              (
+                { modulesPath, ... }:
+                rec {
+                  networking.hostName = "naboo";
+                  imports = [
+                    (modulesPath + "/installer/scan/not-detected.nix")
+                    (modulesPath + "/profiles/qemu-guest.nix")
+                    ./hosts/${networking.hostName}
+                  ];
+                }
+              )
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.backupFileExtension = "backup";
+                home-manager.extraSpecialArgs = { inherit inputs; };
+              }
+            ];
+          };
+          # work laptop
+          nixos = lib.nixosSystem rec {
+            inherit lib;
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs system; };
+
+            modules = [
+              nixos-wsl.nixosModules.default
+              (
+                { ... }:
+                {
+                  networking.hostName = "nixos";
+                  imports = [
+                    ./hosts/dagobah
+                  ];
+                }
+              )
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.backupFileExtension = "backup";
+                home-manager.extraSpecialArgs = { inherit inputs; };
+              }
+            ];
+          };
+        };
 
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
           git-crypt
+          alejandra
+          nixd
           git-lfs
           git
           nix-prefetch-github
+          just
         ];
       };
     };

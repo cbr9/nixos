@@ -2,8 +2,6 @@ switch:
 	sudo nixos-rebuild switch --flake .
 
 update:
-	-rm ~/.config/mimeapps.list
-	-rm ~/.local/share/mimeapps.list
 	nix flake update
 	sudo nixos-rebuild switch --flake .
 
