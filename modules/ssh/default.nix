@@ -2,10 +2,12 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.programs._1password;
   agent = "${config.home.homeDirectory}/.1password/agent.sock";
-in {
+in
+{
   home-manager.users.cabero = {
     programs.ssh = {
       enable = true;

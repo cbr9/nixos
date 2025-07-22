@@ -3,16 +3,18 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.programs._1password;
-in {
+in
+{
   config = {
     programs = {
       _1password.enable = true;
       _1password-gui = {
         package = pkgs.unstable._1password-gui;
         enable = cfg.enable;
-        polkitPolicyOwners = ["cabero"];
+        polkitPolicyOwners = [ "cabero" ];
       };
     };
   };

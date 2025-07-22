@@ -1,16 +1,12 @@
+{ ... }:
 {
-  lib,
-  pkgs,
-  ...
-}:
-with pkgs; {
   # keep this for the future
   programs.helix.languages = rec {
     language-server = {
       pyright = {
         command = "pyright-langserver";
-        args = ["--stdio"];
-        config = {}; # <- this is the important line
+        args = [ "--stdio" ];
+        config = { }; # <- this is the important line
       };
       nil = {
         command = "nil";

@@ -3,9 +3,11 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.desktopManager.gnome;
-in {
+in
+{
   services.xserver = {
     displayManager.gdm = {
       enable = cfg.enable;
@@ -33,7 +35,7 @@ in {
 
     dconf.settings = lib.mkIf cfg.enable {
       "org/gnome/mutter" = {
-        experimental-features = ["scale-monitor-framebuffer"];
+        experimental-features = [ "scale-monitor-framebuffer" ];
       };
       "org/gnome/GWeather4" = {
         temperature-unit = "centigrade";

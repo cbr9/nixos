@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   networking.networkmanager.enable = true;
   networking = {
     iproute2.enable = true;

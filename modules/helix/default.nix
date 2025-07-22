@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.home-manager.users.cabero.programs.helix;
-in {
+in
+{
   home-manager.users.cabero = {
     home.sessionVariables = rec {
       VISUAL = "${cfg.package}/bin/hx";

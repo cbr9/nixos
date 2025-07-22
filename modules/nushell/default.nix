@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  environment.shells = [pkgs.nushell];
+{ pkgs, ... }:
+{
+  environment.shells = [ pkgs.nushell ];
   home-manager.users.cabero = {
     programs.nushell = {
       enable = true;

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   home-manager.users.cabero = {
     programs.bottom = {
       enable = true;

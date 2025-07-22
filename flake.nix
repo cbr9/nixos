@@ -63,9 +63,7 @@
                 { ... }:
                 {
                   networking.hostName = "nixos";
-                  imports = [
-                    ./hosts/dagobah
-                  ];
+                  imports = [ ./hosts/dagobah ];
                 }
               )
               home-manager.nixosModules.home-manager
@@ -82,7 +80,7 @@
       devShells.${system}.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs; [
           git-crypt
-          alejandra
+          nixfmt-rfc-style
           nixd
           git-lfs
           git

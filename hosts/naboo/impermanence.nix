@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   environment.persistence."/persist" = {
     # Link to the /persist mountpoint above
     enable = true;

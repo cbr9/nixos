@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   users.mutableUsers = false;
   users.users.root.initialPassword = "1234";
 

@@ -4,7 +4,8 @@
   inputs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.impermanence.nixosModules.impermanence
@@ -31,8 +32,8 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     fsType = "tmpfs";
