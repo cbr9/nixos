@@ -3,7 +3,7 @@
   home-manager.users.cabero = {
     programs.starship = {
       enable = true;
-      enableTransience = false;
+      enableTransience = true;
       enableBashIntegration = false;
       settings = {
         hostname.ssh_only = false;
