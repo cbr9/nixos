@@ -15,18 +15,17 @@ let
 in
 {
   imports = [
-    # include NixOS-WSL modules
-    # <nixos-wsl/modules>
     ../../modules/1password
+    ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
     ../../modules/direnv
-    ../../modules/nix
     ../../modules/fish
     ../../modules/fzf
     ../../modules/git
     ../../modules/helix
     ../../modules/lazygit
+    ../../modules/nix
     ../../modules/nix
     ../../modules/nushell
     ../../modules/pueue
