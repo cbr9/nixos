@@ -21,6 +21,7 @@
       delta = {
         enable = true;
         options = {
+          hyperlinks = true;
           side-by-side = true;
           line-numbers = true;
           dark = true;

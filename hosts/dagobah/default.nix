@@ -16,6 +16,7 @@ let
 in
 {
   imports = [
+    ../naboo/base/regional.nix
     ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
@@ -58,12 +59,21 @@ in
         core.hooksPath = "~/scm/main/core/langDev/tools/githooks";
       };
     };
+
     home.packages = with pkgs; [
       awscli
+      symlinks
+      openssl
+      dos2unix
+      gdb
       cmake
+      wget
       file
       glow
+      python3
+      ninja
       conan
+      gcc11
       ant
       dysk
       fd
@@ -90,7 +100,7 @@ in
 
   programs.java = {
     enable = true;
-    package = pkgs.temurin-bin;
+    package = pkgs.jdk8;
   };
 
   wsl = {

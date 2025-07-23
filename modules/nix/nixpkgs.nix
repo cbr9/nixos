@@ -7,6 +7,9 @@ let
   config = {
     allowUnfree = true;
   };
+  pkgs-conan = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/55070e598e0e03d1d116c49b9eff322ef07c6ac6.tar.gz";
+  }) { };
 in
 {
   nixpkgs.pkgs = import inputs.nixpkgs {
@@ -17,6 +20,7 @@ in
         unstable = import inputs.nixpkgs-unstable { inherit system config; };
         agenix = inputs.agenix.packages.x86_64-linux.default.override { ageBin = "${prev.age}/bin/age"; };
 
+        conan = pkgs-conan.conan;
         google-chrome = (
           prev.google-chrome.override {
             commandLineArgs = [
