@@ -10,6 +10,7 @@
     ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
+    ../../modules/zellij
     ../../modules/direnv
     ../../modules/fish
     ../../modules/fzf
