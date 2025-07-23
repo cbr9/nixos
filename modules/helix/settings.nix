@@ -38,9 +38,11 @@
       auto-completion = true;
       line-number = "relative";
       true-color = true;
-      auto-save = true;
       cursorline = true;
       cursorcolumn = true;
+      default-line-ending = "lf";
+      end-of-line-diagnostics = "hint";
+      insert-final-newline = false;
       gutters = [
         "diff"
         "line-numbers"
@@ -81,14 +83,18 @@
         left = [
           "mode"
           "spinner"
+          "read-only-indicator"
+          "diagnostics"
         ];
         center = [ "file-name" ];
         right = [
-          "total-line-numbers"
-          "diagnostics"
+          "version-control"
           "selections"
+          "primary-selection-length"
+          "total-line-numbers"
           "position"
           "file-encoding"
+          "file-line-ending"
           "file-type"
         ];
         separator = "|";
@@ -101,6 +107,12 @@
         render = {
           tab = "all";
         };
+      };
+
+      auto-save = {
+        after-delay.enable = false;
+        after-delay.timeout = 1000;
+        focus-lost = true;
       };
     };
   };

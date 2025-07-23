@@ -16,7 +16,6 @@ let
 in
 {
   imports = [
-    ../../modules/1password
     ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
@@ -26,7 +25,6 @@ in
     ../../modules/git
     ../../modules/helix
     ../../modules/lazygit
-    ../../modules/nix
     ../../modules/nix
     ../../modules/nushell
     ../../modules/pueue
@@ -88,8 +86,6 @@ in
     ssh = "ssh.exe";
     op = "op.exe";
   };
-
-  programs._1password.enable = lib.mkForce false;
 
   programs.java = {
     enable = true;
