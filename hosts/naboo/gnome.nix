@@ -24,7 +24,10 @@ in
       };
     };
   };
-  environment.systemPackages = [ pkgs.wl-clipboard ];
+  environment.systemPackages = [
+    pkgs.wl-clipboard
+    pkgs.papers
+  ];
 
   home-manager.users.cabero = {
     home = {

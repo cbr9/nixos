@@ -6,11 +6,11 @@
 with lib;
 let
   defaultApplications = {
-    browser = "${pkgs.google-chrome}/share/applications/google-chrome.desktop";
-    videoPlayer = "${pkgs.vlc}/share/applications/vlc.desktop";
-    documentViewer = "${pkgs.papers}/share/applications/org.gnome.Papers.desktop";
-    textEditor = "${pkgs.helix}/share/applications/Helix.desktop";
-    fileManager = "${pkgs.yazi}/share/applications/yazi.desktop";
+    browser = "google-chrome.desktop";
+    videoPlayer = "vlc.desktop";
+    documentViewer = "org.gnome.Papers.desktop";
+    textEditor = "Helix.desktop";
+    fileManager = "yazi.desktop";
   };
   generateUserDirs =
     folderNames:
