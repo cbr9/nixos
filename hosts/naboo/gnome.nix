@@ -92,6 +92,29 @@ in
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "nothing";
       };
+
+      "org/freedesktop/tracker/miner/files" = {
+        index-recursive-directories = [
+          "&DESKTOP"
+          "&DOCUMENTS"
+          "&MUSIC"
+          "&PICTURES"
+          "&VIDEOS"
+          "/data"
+        ];
+      };
+
+      "org/gnome/desktop/break-reminders" = {
+        selected-breaks = [
+          "eyesight"
+          "movement"
+        ];
+        "movement/duration-seconds" = 180;
+      };
+
+      "org/gnome/desktop/peripherals/touchpad" = {
+        send-events = "disabled";
+      };
     };
   };
 }
