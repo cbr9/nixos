@@ -10,6 +10,14 @@
         on = [ "J" ];
         run = "plugin parent-arrow 1";
       }
+      {
+        on = [ "z" ];
+        run = "plugin zoxide";
+      }
+      {
+        on = [ "Z" ];
+        run = "plugin fzf";
+      }
     ];
   };
 }

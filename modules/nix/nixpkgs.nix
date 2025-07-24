@@ -17,7 +17,7 @@ in
     overlays = [
       (final: prev: {
         # organize = inputs.organize.defaultPackage.${system};
-        unstable = import inputs.nixpkgs-unstable { inherit system config; };
+        stable = import inputs.nixpkgs-stable { inherit system config; };
         agenix = inputs.agenix.packages.x86_64-linux.default.override { ageBin = "${prev.age}/bin/age"; };
 
         conan = pkgs-conan.conan;

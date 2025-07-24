@@ -1,11 +1,17 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
-    ./logitech.nix
+    ./base
+    ./fonts
     ./gnome.nix
+    ./hardware
+    ./hardware-configuration.nix
     ./impermanence.nix
-    ./secrets.nix
+    ./logitech.nix
+    ./printing.nix
+    # ./secrets.nix
+    ./user.nix
+    ./xdg.nix
     ../../modules/1password
     ../../modules/atuin
     ../../modules/bat
@@ -21,10 +27,9 @@
     ../../modules/nix
     ../../modules/nushell
     ../../modules/pueue
-    ../../modules/spotify
+    # ../../modules/spotify
     ../../modules/ssh
     ../../modules/starship
-    ../../modules/xdg
     ../../modules/yazi
     ../../modules/zoxide
   ];

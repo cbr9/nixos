@@ -13,8 +13,13 @@
       hm = config.home-manager.users.cabero;
     in
     {
+      home.file = {
+        ".config/fish/themes".source = ./themes;
+      };
+
       programs.fish = {
         enable = true;
+        generateCompletions = true;
 
         functions = {
           fish_user_key_bindings = ''
@@ -33,6 +38,10 @@
           in
           ''
             set -g fish_greeting ""
+            source ${HOME}/.config/fish/themes/gruvbox.fish
+            theme_gruvbox dark medium
+
+
 
             if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish
               source ${HOME}/.nix-profile/etc/profile.d/nix.fish

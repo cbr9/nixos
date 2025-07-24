@@ -8,20 +8,54 @@
         args = [ "--stdio" ];
         config = { }; # <- this is the important line
       };
-      nil = {
-        command = "nil";
-        config = {
-          nix.flake = {
-            autoArchive = true;
-            autoEvalInputs = true;
+      # nil = {
+      #   command = "nil";
+      #   config = {
+      #     formatting = {
+      #       command = [ "nixfmt" ];
+      #     };
+      #     nix = {
+      #       maxMemoryMB = 16000;
+      #       flake = {
+      #         autoArchive = true;
+      #         autoEvalInputs = true;
+      #       };
+
+      #     };
+      #   };
+      # };
+      nixd = {
+        command = "nixd";
+        args = [ ];
+        config.nixd =
+          let
+            flake = "(builtins.getFlake \"/data/cabero/Code/dotfiles\")";
+          in
+          {
+            nixpkgs = {
+              expr = "import ${flake}.inputs.nixpkgs { }";
+            };
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+            options = {
+              nixos = {
+                expr = "${flake}.nixosConfigurations.naboo.options";
+              };
+              home-manager = {
+                expr = "${flake}.nixosConfigurations.naboo.options.home-manager.users.type.getSubOptions []";
+              };
+            };
           };
-        };
       };
       rust-analyzer.config = {
         checkOnSave.command = "clippy";
-        cachePriming.enable = false;
+        cachePriming.enable = true;
         diagnostics.experimental.enable = true;
         check.features = "all";
+        procMacro.enable = true;
+        cargo.buildScripts.enable = true;
+        imports.preferPrelude = true;
       };
     };
 
@@ -43,7 +77,7 @@
         name = "nix";
         scope = "source.nix";
         auto-format = true;
-        formatter = formatter.nixfmt;
+        # formatter = formatter.nixfmt;
       }
     ];
   };

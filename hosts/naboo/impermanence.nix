@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 {
   environment.persistence."/persist" = {
     # Link to the /persist mountpoint above
@@ -27,16 +27,41 @@
   # --- User-specific Persistent Directories (for user 'cabero') ---
   # These directories will be stored under /persist/home/cabero/ and then
   # bind-mounted into /home/cabero/ on the ephemeral root.
-  environment.persistence."/persist".users.cabero = {
-    directories = [
-      ".cargo"
-      ".config/1Password"
-      ".config/google-chrome"
-      ".cache/Insync/"
-      ".config/Insync/"
-      ".local/share/Insync/"
-      ".ssh"
-      ".gnupg"
+  home-manager.users.cabero = {
+    imports = [
+      inputs.impermanence.homeManagerModules.impermanence
     ];
+
+    home.packages = [ pkgs.fuse ];
+
+    home.persistence."/persist/home/cabero" = {
+      directories = [
+        ".1password"
+        ".cache/Insync/"
+        ".cache/fish/"
+        ".cache/google-chrome/"
+        ".cache/helix/"
+        ".cache/nix/"
+        ".cache/zellij/"
+        ".cargo"
+        ".config/1Password"
+        ".config/Insync/"
+        ".config/google-chrome"
+        ".config/kdeconnect"
+        ".config/zellij"
+        ".gnupg"
+        ".local/share/Insync/"
+        ".local/share/atuin"
+        ".local/share/direnv"
+        ".local/share/fish"
+        ".local/share/keyrings"
+        ".local/share/pueue"
+        ".local/share/zoxide"
+        ".ssh"
+      ];
+      allowOther = true;
+    };
   };
+
+  programs.fuse.userAllowOther = true;
 }

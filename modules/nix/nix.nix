@@ -1,6 +1,7 @@
-{ ... }:
+{ inputs, ... }:
 {
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     gc = {
       automatic = true;
       dates = "weekly";

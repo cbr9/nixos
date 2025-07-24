@@ -22,16 +22,14 @@ in
 
     programs.helix = {
       enable = true;
-      package = pkgs.unstable.helix;
+      package = pkgs.helix;
       defaultEditor = true;
       extraPackages = with pkgs; [
         clippy
-        nixd
         delve
         gopls
         lua-language-server
         marksman
-        nil
         nixfmt-rfc-style
         nodePackages.bash-language-server
         nodePackages.vscode-json-languageserver

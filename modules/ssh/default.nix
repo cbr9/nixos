@@ -5,7 +5,7 @@
 }:
 let
   cfg = config.programs._1password;
-  agent = "${config.home.homeDirectory}/.1password/agent.sock";
+  agent = "${config.home-manager.users.cabero.home.homeDirectory}/.1password/agent.sock";
 in
 {
   home-manager.users.cabero = {

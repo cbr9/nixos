@@ -8,16 +8,23 @@ let
   cfg = config.services.desktopManager.gnome;
 in
 {
-  services.xserver = {
-    displayManager.gdm = {
-      enable = cfg.enable;
-      debug = true;
+  services.flatpak.enable = true;
+
+  services = {
+    desktopManager = {
+      gnome = {
+        enable = true;
+        debug = true;
+      };
     };
-    desktopManager.gnome = {
-      enable = true;
-      debug = true;
+    displayManager = {
+      gdm = {
+        enable = cfg.enable;
+        debug = true;
+      };
     };
   };
+  environment.systemPackages = [ pkgs.wl-clipboard ];
 
   home-manager.users.cabero = {
     home = {

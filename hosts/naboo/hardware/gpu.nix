@@ -6,8 +6,7 @@
 
   hardware = {
     nvidia = {
-      prime.sync.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
       forceFullCompositionPipeline = true;
       powerManagement.enable = true;

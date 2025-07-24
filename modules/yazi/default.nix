@@ -17,7 +17,7 @@
       {
         enable = true;
         initLua = ./init.lua;
-        package = pkgs.unstable.yazi;
+        package = pkgs.yazi;
         theme = {
           flavor.dark = themeName;
         };
