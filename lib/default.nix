@@ -1,4 +1,4 @@
-lib: {
+lib: rec {
   indexOf =
     element: list:
     let
@@ -23,4 +23,22 @@ lib: {
     ) list;
 
   boolToString = bool: if bool == true then "true" else "false";
+
+  getFilesFromDir =
+    dir:
+    builtins.filter (name: builtins.isPath (dir + "/${name}")) (
+      builtins.attrNames (builtins.readDir dir)
+    );
+
+  createSymlinksForDirectory =
+    { sourceDir, targetRelativePath }:
+    builtins.listToAttrs (
+      builtins.map (file: {
+        name = "${targetRelativePath}/${file}"; # Construct the full target path
+        value = {
+          source = "${sourceDir}/${file}"; # Construct the full source path
+          force = true;
+        };
+      }) (getFilesFromDir sourceDir)
+    );
 }

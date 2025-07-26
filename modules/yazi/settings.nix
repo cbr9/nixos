@@ -13,12 +13,6 @@
           name = "*/";
           run = "git";
         }
-        {
-          id = "mime";
-          name = "*";
-          run = "mime-ext";
-          prio = "high";
-        }
       ];
     };
     opener = {
@@ -82,19 +76,11 @@
           use = "edit";
         }
         {
-          name = "*.gram";
-          use = "edit";
-        }
-        {
-          name = "*.sfgtext";
-          use = "edit";
-        }
-        {
-          name = "*.isi";
-          use = "edit";
-        }
-        {
           name = "*.txt";
+          use = "edit";
+        }
+        {
+          name = "*.nu";
           use = "edit";
         }
       ];

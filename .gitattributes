@@ -1,3 +1,1 @@
-hosts/deatcs001ws845/** filter=git-crypt diff=git-crypt
-hosts/deatcs002lt120/** filter=git-crypt diff=git-crypt
-modules/nixos/sony/** filter=git-crypt diff=git-crypt
+hosts/dagobah/** filter=git-crypt diff=git-crypt
