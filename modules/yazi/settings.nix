@@ -24,14 +24,14 @@
     opener = {
       edit = [
         {
-          run = "${pkgs.helix}/bin/hx \"$@\"";
+          run = "${pkgs.helix}/bin/hx $@";
           block = true;
           desc = "Helix";
         }
       ];
       play = [
         {
-          run = "${pkgs.vlc}/bin/vlc \"$@\"";
+          run = "${pkgs.vlc}/bin/vlc $@";
           orphan = true;
           desc = "VLC";
         }
@@ -56,6 +56,46 @@
             "browser"
             "edit"
           ];
+        }
+
+        {
+          mime = "video/*";
+          use = "media";
+        }
+        {
+          mime = "audio/*";
+          use = [
+            "audio"
+            "media"
+          ];
+        }
+        {
+          mime = "application/json";
+          use = "edit";
+        }
+        {
+          name = "*.toml";
+          use = "edit";
+        }
+        {
+          name = "*.xml";
+          use = "edit";
+        }
+        {
+          name = "*.gram";
+          use = "edit";
+        }
+        {
+          name = "*.sfgtext";
+          use = "edit";
+        }
+        {
+          name = "*.isi";
+          use = "edit";
+        }
+        {
+          name = "*.txt";
+          use = "edit";
         }
       ];
       append_rules = [
