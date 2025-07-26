@@ -1,7 +1,7 @@
-{ ... }:
+{ flakePath, nixosConfig, ... }:
 {
   # keep this for the future
-  programs.helix.languages = rec {
+  programs.helix.languages = {
     language-server = {
       pyright = {
         command = "pyright-langserver";
@@ -29,7 +29,7 @@
         args = [ ];
         config.nixd =
           let
-            flake = "(builtins.getFlake \"/data/cabero/Code/dotfiles\")";
+            flake = "(builtins.getFlake \"${flakePath}\")";
           in
           {
             nixpkgs = {
@@ -40,10 +40,10 @@
             };
             options = {
               nixos = {
-                expr = "${flake}.nixosConfigurations.naboo.options";
+                expr = "${flake}.nixosConfigurations.${nixosConfig.networking.hostName}.options";
               };
               home-manager = {
-                expr = "${flake}.nixosConfigurations.naboo.options.home-manager.users.type.getSubOptions []";
+                expr = "${flake}.nixosConfigurations.${nixosConfig.networking.hostName}.options.home-manager.users.type.getSubOptions []";
               };
             };
           };
