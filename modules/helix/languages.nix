@@ -1,4 +1,9 @@
-{ flakePath, nixosConfig, ... }:
+{
+  pkgs,
+  flakePath,
+  nixosConfig,
+  ...
+}:
 {
   # keep this for the future
   programs.helix.languages = {
@@ -56,6 +61,7 @@
         procMacro.enable = true;
         cargo.buildScripts.enable = true;
         imports.preferPrelude = true;
+        serverPath = "${pkgs.ra-multiplex}/bin/ra-multiplex";
       };
     };
 
