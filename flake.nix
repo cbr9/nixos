@@ -7,6 +7,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
+    helix.url = "github:helix-editor/helix";
+    yazi.url = "github:sxyazi/yazi";
     impermanence.url = "github:nix-community/impermanence";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };

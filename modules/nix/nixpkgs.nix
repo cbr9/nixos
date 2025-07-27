@@ -15,6 +15,8 @@ in
   nixpkgs.pkgs = import inputs.nixpkgs {
     inherit system config;
     overlays = [
+      inputs.helix.overlays.default
+      inputs.yazi.overlays.default
       (final: prev: {
         # organize = inputs.organize.defaultPackage.${system};
         stable = import inputs.nixpkgs-stable { inherit system config; };
