@@ -54,7 +54,7 @@
           };
       };
       rust-analyzer.config = {
-        checkOnSave.command = "clippy";
+        checkOnSave = true;
         cachePriming.enable = true;
         diagnostics.experimental.enable = true;
         check.features = "all";

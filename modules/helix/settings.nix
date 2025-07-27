@@ -74,9 +74,8 @@
       };
 
       lsp = {
-        display-messages = true;
         display-inlay-hints = true;
-        auto-signature-help = true;
+        display-progress-messages = true;
       };
 
       statusline = {
