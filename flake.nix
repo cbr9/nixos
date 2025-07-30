@@ -11,6 +11,10 @@
     yazi.url = "github:sxyazi/yazi";
     impermanence.url = "github:nix-community/impermanence";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +36,7 @@
 
             modules = [
               agenix.nixosModules.default
+              nix-index-database.nixosModules.nix-index
 
               (
                 { modulesPath, ... }:
@@ -54,6 +59,9 @@
                   flakePath = "/home/cabero/Code/dotfiles";
                   inherit inputs;
                 };
+                home-manager.sharedModules = [
+                  nix-index-database.homeModules.nix-index
+                ];
               }
             ];
           };
@@ -80,6 +88,9 @@
                   flakePath = "/home/cabero/Code/dotfiles";
                   inherit inputs;
                 };
+                home-manager.sharedModules = [
+                  nix-index-database.homeModules.nix-index
+                ];
               }
             ];
           };

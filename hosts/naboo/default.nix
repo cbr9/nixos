@@ -27,6 +27,7 @@
     ../../modules/nix
     ../../modules/nushell
     ../../modules/pueue
+    ../../modules/nix-index
     # ../../modules/spotify
     ../../modules/ssh
     ../../modules/starship
