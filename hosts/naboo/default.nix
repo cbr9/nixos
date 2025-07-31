@@ -17,6 +17,7 @@
     ../../modules/bat
     ../../modules/bottom
     ../../modules/zellij
+    ../../modules/kitty
     ../../modules/direnv
     ../../modules/fish
     ../../modules/fzf

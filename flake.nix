@@ -10,6 +10,9 @@
     helix.url = "github:helix-editor/helix";
     yazi.url = "github:sxyazi/yazi";
     impermanence.url = "github:nix-community/impermanence";
+    walker = {
+      url = "github:abenz1267/walker/v0.13.12";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

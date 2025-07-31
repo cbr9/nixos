@@ -1,24 +1,31 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   services.libinput.enable = true;
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+  };
 
   hardware = {
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesetting.enable = true;
-      forceFullCompositionPipeline = true;
-      powerManagement.enable = true;
-      open = false;
-    };
     graphics = {
+      enable32Bit = true;
       enable = true;
-      extraPackages = [
-        pkgs.libva
+      extraPackages = with pkgs; [
+        libva
+        amdvlk
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+
       ];
     };
   };
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
 
   environment.systemPackages = with pkgs; [
     d-spy

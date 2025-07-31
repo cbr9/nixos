@@ -37,7 +37,9 @@
     home.persistence."/persist/home/cabero" = {
       directories = [
         ".1password"
+        ".1Password"
         ".cache/Insync/"
+        ".cache/spotify"
         ".cache/fish/"
         ".cache/google-chrome/"
         ".cache/helix/"
@@ -45,7 +47,8 @@
         ".cache/zellij/"
         ".cargo"
         ".config/1Password"
-        ".config/Insync/"
+        ".config/Insync"
+        ".config/niri"
         ".config/google-chrome"
         ".config/kdeconnect"
         ".config/zellij"

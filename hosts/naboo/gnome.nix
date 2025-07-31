@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -10,6 +11,9 @@ in
 {
   services.flatpak.enable = true;
 
+  programs.niri.enable = true;
+  programs.hyprlock.enable = true;
+
   services = {
     desktopManager = {
       gnome = {
@@ -18,18 +22,83 @@ in
       };
     };
     displayManager = {
+      defaultSession = "niri";
       gdm = {
         enable = cfg.enable;
         debug = true;
       };
     };
   };
-  environment.systemPackages = [
-    pkgs.wl-clipboard
-    pkgs.papers
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    papers
+    apple-cursor
+    kitty
   ];
 
+  nix.settings = {
+    substituters = [
+      "https://walker-git.cachix.org"
+      "https://walker.cachix.org"
+    ];
+    trusted-public-keys = [
+      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
+      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
+    ];
+  };
+
+  security.pam.services.swaylock = { };
   home-manager.users.cabero = {
+    imports = [
+      inputs.walker.homeManagerModules.default
+    ];
+
+    programs.walker = {
+      enable = true;
+      runAsService = true;
+
+      # All options from the config.json can be used here.
+      config = {
+        search.placeholder = "Example";
+        ui.fullscreen = true;
+        list = {
+          height = 200;
+        };
+        websearch.prefix = "?";
+        switcher.prefix = "/";
+      };
+
+      # # If this is not set the default styling is used.
+      # theme.style = ''
+      #   * {
+      #     color: #dcd7ba;
+      #   }
+      # '';
+    };
+    services.cliphist = {
+      enable = true;
+    };
+    services.swww = {
+      enable = true;
+    };
+    programs.swaylock = {
+      enable = true;
+    };
+    programs.waybar = {
+      enable = true;
+    };
+    programs.fuzzel = {
+      enable = true;
+      settings = {
+        main = {
+          dpi-aware = "yes";
+          fields = "filename,name";
+          terminal = "${pkgs.kitty}/bin/kitty";
+          layer = "overlay";
+        };
+        colors.background = "ffffffff";
+      };
+    };
     home = {
       file.".config/gnome-initial-setup-done" = {
         source = pkgs.writeText "gnome-initial-setup-done" "yes";

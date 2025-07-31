@@ -39,6 +39,7 @@
       username = "cabero";
       packages = with pkgs; [
         # CLI
+        gemini-cli
         appimage-run
         glow
         kalker
