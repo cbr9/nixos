@@ -8,7 +8,7 @@
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-1</connector>
+          <connector>DP-3</connector>
           <vendor>HPN</vendor>
           <product>HP 27q</product>
           <serial>CNK84316VT</serial>
@@ -26,7 +26,7 @@
       <scale>1</scale>
       <monitor>
         <monitorspec>
-          <connector>HDMI-1</connector>
+          <connector>DP-2</connector>
           <vendor>HPN</vendor>
           <product>HP E24 G4</product>
           <serial>CN412023D6</serial>

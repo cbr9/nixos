@@ -11,19 +11,6 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  # services.udev.extraRules = ''
-  #   ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x43ee" ATTR{power/wakeup}="disabled"
-  # '';
-
-  # boot.kernelParams = [
-  #   "nvidia.NVreg_TemporaryFilePath=/var/tmp"
-  #   "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  # ];
-  boot.kernelParams = [
-    "nvidia-drm.modeset=1"
-    "mem_sleep_default=deep"
-  ];
-
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"

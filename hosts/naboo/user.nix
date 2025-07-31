@@ -33,6 +33,9 @@
   };
 
   home-manager.users.cabero = {
+    imports = [
+      ../../modules/nix-index
+    ];
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";

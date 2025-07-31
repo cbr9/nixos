@@ -41,6 +41,10 @@
   system.stateVersion = "25.05";
   documentation.man.generateCaches = true;
   powerManagement.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   environment = {
     pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw

@@ -59,7 +59,7 @@
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "backup";
                 home-manager.extraSpecialArgs = {
-                  flakePath = "/home/cabero/Code/dotfiles";
+                  flakePath = "/data/cabero/Code/dotfiles";
                   inherit inputs;
                 };
                 home-manager.sharedModules = [
