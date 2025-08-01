@@ -10,6 +10,9 @@
         };
       };
     };
-    home.shellAliases.lg = "lazygit";
+
+    programs.fish.shellAbbrs = {
+      lg = "lazygit";
+    };
   };
 }
