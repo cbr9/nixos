@@ -48,7 +48,6 @@
         ".cargo"
         ".config/1Password"
         ".config/Insync"
-        ".config/niri"
         ".config/google-chrome"
         ".config/kdeconnect"
         ".config/zellij"

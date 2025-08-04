@@ -1,13 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
-    helix.url = "github:helix-editor/helix";
     yazi.url = "github:sxyazi/yazi";
     impermanence.url = "github:nix-community/impermanence";
     walker = {
@@ -16,6 +15,11 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri.url = "github:YaLTeR/niri";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -39,6 +43,7 @@
 
             modules = [
               agenix.nixosModules.default
+              sops-nix.nixosModules.sops
               nix-index-database.nixosModules.nix-index
 
               (

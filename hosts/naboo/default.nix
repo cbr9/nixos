@@ -3,13 +3,12 @@
   imports = [
     ./base
     ./fonts
-    ./gnome.nix
+    ./desktop
     ./hardware
     ./hardware-configuration.nix
     ./impermanence.nix
     ./logitech.nix
     ./printing.nix
-    # ./secrets.nix
     ./user.nix
     ./xdg.nix
     ../../modules/1password
@@ -29,7 +28,6 @@
     ../../modules/nushell
     ../../modules/pueue
     ../../modules/nix-index
-    # ../../modules/spotify
     ../../modules/ssh
     ../../modules/starship
     ../../modules/yazi
@@ -60,5 +58,6 @@
     pkg-config
     pavucontrol
     agenix
+    nautilus
   ];
 }

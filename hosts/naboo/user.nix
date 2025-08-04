@@ -12,9 +12,11 @@
     createHome = true;
     isNormalUser = true;
     initialPassword = "1234";
+    linger = true;
     extraGroups = [
       "wheel"
       "fuse"
+      "seat"
       "docker"
       "scanner"
       "lp"
@@ -33,19 +35,18 @@
   };
 
   home-manager.users.cabero = {
-    imports = [
-      ../../modules/nix-index
-    ];
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";
       username = "cabero";
       packages = with pkgs; [
         # CLI
+        sops
         gemini-cli
         appimage-run
         glow
         kalker
+        todoist
         just
         du-dust
         sox
@@ -60,6 +61,7 @@
         sd
         # GUI
         gparted
+        todoist-electron
         google-chrome
         qalculate-gtk
         spotify

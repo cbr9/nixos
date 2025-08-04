@@ -11,6 +11,8 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
+  hardware.enableAllFirmware = true;
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
