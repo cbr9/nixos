@@ -14,5 +14,8 @@
     programs.fish.shellAbbrs = {
       lg = "lazygit";
     };
+    programs.nushell.shellAliases = {
+      lg = "lazygit";
+    };
   };
 }

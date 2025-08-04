@@ -34,6 +34,7 @@ in
         nodePackages.bash-language-server
         nodePackages.vscode-json-languageserver
         nodePackages.yaml-language-server
+        typescript-language-server
         ruff
         shellcheck
         taplo
