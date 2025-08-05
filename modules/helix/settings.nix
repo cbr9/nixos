@@ -36,6 +36,7 @@
     };
     editor = {
       auto-completion = true;
+      smart-tab.enable = false;
       line-number = "relative";
       true-color = true;
       cursorline = true;
