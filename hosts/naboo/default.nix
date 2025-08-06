@@ -15,6 +15,7 @@
     ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
+    ../../modules/awscli
     ../../modules/zellij
     ../../modules/kitty
     ../../modules/direnv
