@@ -55,6 +55,8 @@
         ".gnupg"
         ".local/share/Insync/"
         ".local/share/atuin"
+        ".local/share/applications"
+        ".local/share/icons"
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/keyrings"
