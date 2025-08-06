@@ -69,7 +69,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "DP-1" {
+output "DP-2" {
     // Uncomment this line to disable this output.
     // off
 
@@ -109,7 +109,7 @@ cursor {
     xcursor-size 24
 }
 
-output "DP-2" {
+output "DP-3" {
     mode "1920x1080@60"
     scale 1
     transform "normal"
@@ -284,6 +284,9 @@ layout {
 spawn-at-startup "swww" "img" "/home/cabero/Downloads/neom-_jfejQo2tZw-unsplash (1).jpg"
 spawn-at-startup "waybar"
 
+spawn-at-startup "todoist-electron" "--hidden" "--ozone-platform=wayland"
+spawn-at-startup "1password" "--silent" "--ozone-platform=wayland"
+
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -361,7 +364,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open Todoist" { spawn "todoist-electron" "--ozone-platform=wayland"; }
-    Mod+P hotkey-overlay-title="Open 1Password" { spawn "1password --ozone-platform=wayland"; }
+    Mod+P hotkey-overlay-title="Open 1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "hyprlock"; }

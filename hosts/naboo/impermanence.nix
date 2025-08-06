@@ -47,6 +47,7 @@
         ".cache/zellij/"
         ".cargo"
         ".config/1Password"
+        ".config/Todoist"
         ".config/Insync"
         ".config/google-chrome"
         ".config/kdeconnect"
