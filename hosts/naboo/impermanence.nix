@@ -49,6 +49,7 @@
         ".config/1Password"
         ".config/Todoist"
         ".config/Insync"
+        ".config/obsidian"
         ".config/google-chrome"
         ".config/kdeconnect"
         ".config/zellij"
