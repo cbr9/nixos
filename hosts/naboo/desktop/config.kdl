@@ -284,7 +284,6 @@ layout {
 spawn-at-startup "swww" "img" "/home/cabero/Downloads/neom-_jfejQo2tZw-unsplash (1).jpg"
 spawn-at-startup "waybar"
 
-spawn-at-startup "todoist-electron" "--hidden" "--ozone-platform=wayland"
 spawn-at-startup "1password" "--silent" "--ozone-platform=wayland"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -363,9 +362,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open Todoist" { spawn "todoist-electron" "--ozone-platform=wayland"; }
-    Mod+P hotkey-overlay-title="Open 1Password" { spawn "1password" "--ozone-platform=wayland"; }
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="Todoist" { spawn "google-chrome-stable" "--profile-directory=Default" "--app-id=dlgohinmglaoopaiplliaecdpmnepmga"; }
+    Mod+G hotkey-overlay-title="Gemini" { spawn "google-chrome-stable" "--profile-directory=Default" "--app-id=gdfaincndogidkdcdkhapmbffkckdkhn"; }
+    Mod+E hotkey-overlay-title="Gmail" { spawn "google-chrome-stable" "--profile-directory=Default" "--app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm"; }
+    Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
+    Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "hyprlock"; }
     Mod+B hotkey-overlay-title="Pick an item from the clipboard history" { spawn "select-from-clipboard"; }

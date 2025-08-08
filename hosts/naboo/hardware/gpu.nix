@@ -16,7 +16,9 @@
       extraPackages = with pkgs; [
         libva
         amdvlk
+        amf
       ];
+
       extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
 
