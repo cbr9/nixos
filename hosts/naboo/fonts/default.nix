@@ -2,6 +2,8 @@
 {
   fonts = {
     fontDir.enable = true;
-    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+    packages = (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)) ++ [
+      pkgs.font-awesome
+    ];
   };
 }

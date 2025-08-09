@@ -14,6 +14,7 @@
     initialPassword = "1234";
     linger = true;
     extraGroups = [
+      "input"
       "wheel"
       "fuse"
       "seat"
@@ -46,7 +47,6 @@
         appimage-run
         glow
         kalker
-        todoist
         just
         du-dust
         sox
