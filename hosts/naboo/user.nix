@@ -12,7 +12,6 @@
     createHome = true;
     isNormalUser = true;
     initialPassword = "1234";
-    linger = true;
     extraGroups = [
       "input"
       "wheel"
