@@ -187,14 +187,14 @@ label:focus {
     color: #2a5c45;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
+/* #tray > .passive { */
+    /* -gtk-icon-effect: dim; */
+/* } */
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
+/* #tray > .needs-attention { */
+    /* -gtk-icon-effect: highlight; */
+    /* background-color: #eb4d4b; */
+/* } */
 
 #idle_inhibitor {
     background-color: #2d3436;

@@ -20,10 +20,14 @@
     papers
     apple-cursor
     kitty
+    bemoji
   ];
 
   home-manager.users.cabero = {
     home.file.".config/niri/config.kdl".source = ./config.kdl;
+    home.sessionVariables = {
+      BEMOJI_PICKER_CMD = "fuzzel --dmenu";
+    };
     services.dunst = {
       enable = true;
     };
@@ -70,7 +74,8 @@
           };
 
           "niri/window" = {
-            # icon = true;
+            icon = true;
+            icon-size = 16;
             separate-outputs = true;
             expand = true;
           };
@@ -78,11 +83,10 @@
           "wlr/taskbar" = {
             all-outputs = false;
             format = "{icon}";
-            tooltip-format = "{title} | {app_id}";
-            active_first = true;
+            tooltip-format = "{title} | {name}";
             on-click = "activate";
             on-click-middle = "close";
-            on-click-right = "fullscreen";
+            on-click-right = "minimize";
           };
 
           keyboard-state = {
@@ -97,6 +101,7 @@
             icon-size = 21;
             spacing = 10;
             show-passive-items = true;
+            expand = true;
           };
           clock = {
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -167,7 +172,7 @@
           dpi-aware = "no";
           fields = "filename,name";
           exit-on-keyboard-focus-loss = "yes";
-          terminal = "${pkgs.kitty}/bin/kitty";
+          keyboard-focus = "on-demand";
           layer = "overlay";
         };
         colors = {
