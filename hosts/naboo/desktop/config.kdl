@@ -282,7 +282,6 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "swww" "img" "/home/cabero/Downloads/neom-_jfejQo2tZw-unsplash (1).jpg"
 spawn-at-startup "1password" "--silent" "--ozone-platform-hint=wayland"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
