@@ -59,7 +59,6 @@
     libnotify
     pkg-config
     pavucontrol
-    agenix
     nautilus
   ];
 }

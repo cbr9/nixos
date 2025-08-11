@@ -6,22 +6,14 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix";
     yazi.url = "github:sxyazi/yazi";
     impermanence.url = "github:nix-community/impermanence";
-    walker = {
-      url = "github:abenz1267/walker/v0.13.12";
-    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri.url = "github:YaLTeR/niri";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -42,8 +34,6 @@
             specialArgs = { inherit inputs system; };
 
             modules = [
-              agenix.nixosModules.default
-              sops-nix.nixosModules.sops
               nix-index-database.nixosModules.nix-index
 
               (
