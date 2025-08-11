@@ -283,7 +283,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "swww" "img" "/home/cabero/Downloads/neom-_jfejQo2tZw-unsplash (1).jpg"
-spawn-at-startup "1password" "--silent" "--ozone-platform=wayland"
+spawn-at-startup "1password" "--silent" "--ozone-platform-hint=wayland"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -361,7 +361,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+E { spawn "bemoji" "--noline"; }
+    Mod+E hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "--noline"; }
     Mod+T hotkey-overlay-title="Todoist" { spawn "google-chrome-stable" "--profile-directory=Default" "--app-id=dlgohinmglaoopaiplliaecdpmnepmga"; }
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }

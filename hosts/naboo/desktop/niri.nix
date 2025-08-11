@@ -21,7 +21,10 @@
     apple-cursor
     kitty
     bemoji
+    xwayland-satellite
   ];
+
+  programs.xwayland.enable = true;
 
   home-manager.users.cabero = {
     home.file.".config/niri/config.kdl".source = ./config.kdl;
@@ -165,6 +168,9 @@
         enable = true;
       };
     };
+
+    wayland.systemd.target = "niri.service";
+
     programs.fuzzel = {
       enable = true;
       settings = {
