@@ -19,10 +19,10 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
+window#waybar.empty #window {
     background-color: transparent;
 }
+/*
 window#waybar.solo {
     background-color: #FFFFFF;
 }
@@ -123,67 +123,19 @@ button:hover {
 
 #clock {
     /* background-color: #64727D; */
-    font-weight: bold;
+    /* font-weight: bold; */
     /* background-color: rgba(0, 0, 0, 0.3); */
-    border-radius: 99px;
+    border-radius: 15px;
 }
-
-#battery {
-    /* background-color: #f9e2af; */
-    /* color: #000000; */
-    margin-left: 4px;
-}
-
-/*
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-*/
 
 label:focus {
     background-color: #000000;
-}
-
-#cpu {
-    /* background-color: #f38ba8; */
-    /* color: #000000; */
-    /* border-radius: 99px 0px 0px 99px; */
-    /* padding: 0 0 0 10px; */
-    /* padding: 4px; */
-}
-
-#memory {
-    /* background-color: #fab387; */
-    /* color: #000000; */
-    /* border-radius: 0px 99px 99px 0px; */
-    /* padding: 0 10px 0 0; */
 }
 
 #disk {
     background-color: #964B00;
 }
 
-#backlight {
-    background-color: #90b1b1;
-}
 #network {
     font-size: 23px;
 }
@@ -202,15 +154,15 @@ label:focus {
 }
 
 #taskbar button:first-child {
-    border-radius: 99px 0 0 99px;
+    border-radius: 15px 0 0 15px;
 }
 
 #taskbar button:last-child {
-    border-radius: 0 99px 99px 0;
+    border-radius: 0 15px 15px 0;
 }
 
 #taskbar button:first-child:last-child {
-    border-radius: 99px;
+    border-radius: 15px;
 }
 
 #taskbar button:hover {
@@ -233,14 +185,6 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 
 #tray > .passive {

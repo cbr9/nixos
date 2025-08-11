@@ -52,6 +52,7 @@
   networking.hostName = "naboo";
   environment.systemPackages = with pkgs; [
     killall
+    simple-scan
     git
     wget
     openssl

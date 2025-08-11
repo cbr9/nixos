@@ -205,7 +205,7 @@ layout {
         width 8
         length total-proportion=1.0
         gaps-between-tabs 1
-        position "bottom"
+        position "left"
         corner-radius 12
         active-color "#FFDE21"
         inactive-color "#3d3b1d"
