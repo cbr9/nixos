@@ -45,6 +45,7 @@
     binfmt = true;
   };
 
+  services.libinput.enable = true;
   environment = {
     pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   };

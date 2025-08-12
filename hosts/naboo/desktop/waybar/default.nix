@@ -1,70 +1,9 @@
+{ ... }:
 {
-  pkgs,
-  ...
-}:
-{
-  services.flatpak.enable = true;
-
-  programs.niri.enable = true;
-  programs.hyprlock.enable = true;
-
-  services = {
-    displayManager = {
-      defaultSession = "niri";
-      ly.enable = true;
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-    papers
-    apple-cursor
-    kitty
-    bemoji
-    xwayland-satellite
-  ];
-
-  programs.xwayland.enable = true;
-
   home-manager.users.cabero = {
-    home.file.".config/niri/config.kdl".source = ./config.kdl;
-    home.sessionVariables = {
-      BEMOJI_PICKER_CMD = "fuzzel --dmenu";
-    };
-    services = {
-      swayidle = {
-        enable = true;
-        package = pkgs.swayidle;
-        timeouts = [
-          {
-            timeout = 300; # 5 minutes
-            command = "${pkgs.hyprlock}/bin/hyprlock";
-          }
-          {
-            timeout = 900; # 15 minutes
-            command = "${pkgs.systemd}/bin/systemctl suspend";
-          }
-        ];
-        events = [
-          {
-            event = "before-sleep";
-            command = "${pkgs.hyprlock}/bin/hyprlock";
-          }
-        ];
-      };
-    };
-    services.dunst = {
-      enable = true;
-    };
-    services.cliphist = {
-      enable = true;
-    };
-    services.swww = {
-      enable = true;
-    };
     programs.waybar = {
       enable = true;
-      style = builtins.readFile ./waybar.css;
+      style = builtins.readFile ./style.css;
       settings = {
         main = {
           layer = "top";
@@ -188,36 +127,6 @@
       systemd = {
         enableDebug = true;
         enable = true;
-      };
-    };
-
-    wayland.systemd.target = "niri.service";
-
-    programs.fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          dpi-aware = "no";
-          fields = "filename,name";
-          exit-on-keyboard-focus-loss = "yes";
-          keyboard-focus = "on-demand";
-          layer = "overlay";
-        };
-        colors = {
-          background = "282a36ff";
-          text = "f8f8f2ff";
-          match = "8be9fdff";
-          selection-match = "8be9fdff";
-          selection = "44475add";
-          selection-text = "f8f8f2ff";
-          border = "bd93f9ff";
-        };
-      };
-    };
-
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
       };
     };
 

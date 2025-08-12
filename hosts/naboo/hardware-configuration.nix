@@ -8,7 +8,6 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.impermanence.nixosModules.impermanence
   ];
 
   hardware.enableAllFirmware = true;
