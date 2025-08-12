@@ -368,7 +368,7 @@ binds {
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock" "-f"; }
     Mod+B hotkey-overlay-title="Pick an item from the clipboard history" { spawn "select-from-clipboard"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

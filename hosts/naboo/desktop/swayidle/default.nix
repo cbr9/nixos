@@ -7,7 +7,7 @@
         timeouts = [
           {
             timeout = 300; # 5 minutes
-            command = "${pkgs.hyprlock}/bin/hyprlock";
+            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
           {
             timeout = 900; # 15 minutes
@@ -17,7 +17,7 @@
         events = [
           {
             event = "before-sleep";
-            command = "${pkgs.hyprlock}/bin/hyprlock";
+            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
         ];
       };
