@@ -34,13 +34,12 @@
         indicator = true;
         indicator-radius = 100;
         indicator-thickness = 7;
-        effect-blur = 1;
+        effect-blur = 2;
         effect-pixelate = 100;
         screenshots = true;
         indicator-idle-visible = false;
         show-failed-attempts = true;
         show-keyboard-layout = true;
-        grace = 5;
         color = "24273a";
         bs-hl-color = "f4dbd6";
         caps-lock-bs-hl-color = "f4dbd6";
