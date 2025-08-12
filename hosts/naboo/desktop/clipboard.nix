@@ -1,14 +1,14 @@
 { pkgs, ... }:
 let
   width = "100";
-  fuzzel = ''fuzzel --dmenu --prompt "> Clipboard: " --width ${width}'';
-  cliphist-list = ''cliphist -preview-width ${width} list'';
+  fuzzel = ''${pkgs.fuzzel}/bin/fuzzel --dmenu --prompt "> Clipboard: " --width ${width}'';
+  cliphist = "${pkgs.cliphist}/bin/cliphist";
 
   select-from-clipboard = pkgs.writeShellScriptBin "select-from-clipboard" ''
-    ${cliphist-list} | ${fuzzel} | cliphist decode | wl-copy
+    ${cliphist} -preview-width ${width} list | ${fuzzel} | ${cliphist} decode | wl-copy
   '';
   delete-from-clipboard = pkgs.writeShellScriptBin "delete-from-clipboard" ''
-    ${cliphist-list} | ${fuzzel} | cliphist delete
+    ${cliphist} -preview-width ${width} list | ${fuzzel} | ${cliphist} delete
   '';
 in
 {

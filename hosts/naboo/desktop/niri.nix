@@ -31,6 +31,28 @@
     home.sessionVariables = {
       BEMOJI_PICKER_CMD = "fuzzel --dmenu";
     };
+    services = {
+      swayidle = {
+        enable = true;
+        package = pkgs.swayidle;
+        timeouts = [
+          {
+            timeout = 300; # 5 minutes
+            command = "${pkgs.hyprlock}/bin/hyprlock";
+          }
+          {
+            timeout = 900; # 15 minutes
+            command = "${pkgs.systemd}/bin/systemctl suspend";
+          }
+        ];
+        events = [
+          {
+            event = "before-sleep";
+            command = "${pkgs.hyprlock}/bin/hyprlock";
+          }
+        ];
+      };
+    };
     services.dunst = {
       enable = true;
     };
