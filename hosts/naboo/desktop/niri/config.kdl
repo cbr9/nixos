@@ -104,6 +104,9 @@ output "DP-2" {
     position x=1280 y=0
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
 
 cursor {
     xcursor-theme "macOS-White"
