@@ -11,6 +11,7 @@
   users.users.cabero = {
     createHome = true;
     isNormalUser = true;
+    linger = true;
     initialPassword = "1234";
     extraGroups = [
       "input"
