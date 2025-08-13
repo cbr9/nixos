@@ -43,7 +43,7 @@
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/536883c7-c15b-4299-abb9-63fe5ef1fbfe"; # <--- UUID of your NVMe Btrfs pool
+    device = "/dev/disk/by-uuid/536883c7-c15b-4299-abb9-63fe5ef1fbfe";
     fsType = "btrfs";
     neededForBoot = true;
     options = [
@@ -54,7 +54,7 @@
   };
 
   fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/f9479f9b-915b-4b68-99d5-1abc7e5df6bb"; # <--- Replace with actual UUID
+    device = "/dev/disk/by-uuid/f9479f9b-915b-4b68-99d5-1abc7e5df6bb";
     fsType = "btrfs";
     options = [
       "compress=zstd"
@@ -63,7 +63,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/01E6-9825"; # <--- Replace with actual UUID
+    device = "/dev/disk/by-uuid/01E6-9825";
     fsType = "vfat";
   };
 
