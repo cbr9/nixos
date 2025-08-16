@@ -35,6 +35,7 @@
     ../../modules/zoxide
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.kernelModules = [ "i2c-dev" ];
   system.stateVersion = "25.05";
   documentation.man.generateCaches = true;
