@@ -12,7 +12,7 @@
 
   programs.xwayland.enable = true;
   services.flatpak.enable = true;
-  services.displayManager.ly.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
