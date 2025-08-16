@@ -61,7 +61,6 @@
         sd
         # GUI
         gparted
-        todoist-electron
         google-chrome
         qalculate-gtk
         spotify
