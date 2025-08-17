@@ -86,19 +86,12 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # boot.loader.grub = {
-  #   enable = lib.mkForce true;
-  #   efiSupport =  true;
-  #   useOSProber = true;
-  #   device = "nodev";
-  # };
   boot.loader = {
     efi.efiSysMountPoint = "/boot";
     grub = {
       enable = true;
       efiSupport = true;
       efiInstallAsRemovable = true;
-      # useOSProber = true;
       device = "nodev";
     };
   };

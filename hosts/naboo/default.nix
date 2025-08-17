@@ -23,7 +23,6 @@
     ../../modules/fzf
     ../../modules/git
     ../../modules/helix
-    ../../modules/kdeconnect
     ../../modules/lazygit
     ../../modules/nix
     ../../modules/nushell

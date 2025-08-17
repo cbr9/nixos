@@ -24,10 +24,6 @@
             event = "before-sleep";
             command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
-          {
-            event = "after-resume";
-            command = "${pkgs.niri}/bin/niri msg output DP-2 on && ${pkgs.niri}/bin/niri msg output DP-3 on";
-          }
         ];
       };
     };

@@ -49,7 +49,6 @@
         ".cache/helix"
         ".cache/nix"
         ".cache/zellij"
-        ".cache/swww"
         ".cargo"
         ".config/1Password"
         ".config/Todoist"

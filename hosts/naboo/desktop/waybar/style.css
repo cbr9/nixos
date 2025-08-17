@@ -130,6 +130,7 @@ label:focus {
 }
 
 #network.disconnected {
+    font-size: 23px;
     background-color: #f53c3c;
 }
 
