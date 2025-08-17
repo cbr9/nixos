@@ -5,6 +5,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  boot.kernelParams = [ "amdgpu.gpu_recovery=1" ];
   hardware = {
     amdgpu = {
       initrd.enable = true;
