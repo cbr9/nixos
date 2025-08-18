@@ -5,7 +5,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  boot.kernelParams = [ "amdgpu.gpu_recovery=1" ];
   hardware = {
     amdgpu = {
       initrd.enable = true;
@@ -31,14 +30,5 @@
 
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
-
-  environment.systemPackages = with pkgs; [
-    d-spy
-    glxinfo
-    vulkan-headers
-    vulkan-loader
-    vulkan-tools
-    xawtv
   ];
 }

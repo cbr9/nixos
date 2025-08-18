@@ -66,7 +66,6 @@
         spotify
         vlc
         webtorrent_desktop
-        insync
         obsidian
       ];
     };

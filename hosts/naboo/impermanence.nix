@@ -42,7 +42,6 @@
       directories = [
         ".1password"
         ".1Password"
-        ".cache/Insync"
         ".cache/spotify"
         ".cache/fish"
         ".cache/google-chrome"
@@ -52,7 +51,6 @@
         ".cargo"
         ".config/1Password"
         ".config/Todoist"
-        ".config/Insync"
         ".config/spotify"
         ".config/obsidian"
         ".config/google-chrome"
@@ -60,7 +58,6 @@
         ".config/zellij"
         ".gnupg"
         ".local/state/lazygit"
-        ".local/share/Insync"
         ".local/share/atuin"
         ".local/share/applications"
         ".local/share/icons"
