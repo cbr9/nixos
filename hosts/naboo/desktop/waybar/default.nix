@@ -50,7 +50,6 @@
             tooltip-format = "{title} | {name}";
             on-click = "activate";
             on-click-middle = "close";
-            on-click-right = "minimize";
           };
 
           keyboard-state = {
