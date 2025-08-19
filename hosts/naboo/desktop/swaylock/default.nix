@@ -5,13 +5,12 @@
       enable = true;
       package = pkgs.swaylock-effects;
       settings = {
-        font-size = 36;
         clock = true;
         indicator = true;
         indicator-radius = 100;
         indicator-thickness = 7;
-        effect-blur = 2;
-        effect-pixelate = 100;
+        effect-blur = "7x7";
+        effect-vignette = "0.5:0.5";
         screenshots = true;
         indicator-idle-visible = false;
         show-failed-attempts = true;
