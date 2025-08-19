@@ -24,6 +24,13 @@
             event = "before-sleep";
             command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
+          {
+            # without this, if you resume the system and the monitors are set to use another video input, like HDMI
+            # (say you are using your work laptop with the same monitors, but using a different input source),
+            # the screens won't output anything, even after you switch the input back to DP
+            event = "after-resume";
+            command = "${pkgs.niri}/bin/niri msg output DP-2 on && ${pkgs.niri}/bin/niri msg output DP-3 on";
+          }
         ];
       };
     };
