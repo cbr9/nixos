@@ -54,7 +54,6 @@
         ".config/spotify"
         ".config/obsidian"
         ".config/google-chrome"
-        ".config/kdeconnect"
         ".config/zellij"
         ".gnupg"
         ".local/state/lazygit"

@@ -22,7 +22,7 @@
         events = [
           {
             event = "before-sleep";
-            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
+            command = "${pkgs.niri}/bin/niri msg output DP-2 on && ${pkgs.niri}/bin/niri msg output DP-3 on && ${pkgs.swaylock-effects}/bin/swaylock -f";
           }
           {
             # without this, if you resume the system and the monitors are set to use another video input, like HDMI

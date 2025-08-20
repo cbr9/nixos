@@ -9,6 +9,11 @@ let
   cfg = config.home-manager.users.cabero.programs.helix;
 in
 {
+
+  nixpkgs.overlays = [
+    inputs.helix.overlays.default
+  ];
+
   home-manager.users.cabero = {
     home.sessionVariables = rec {
       VISUAL = "${cfg.package}/bin/hx";
@@ -22,7 +27,7 @@ in
 
     programs.helix = {
       enable = true;
-      package = pkgs.unstable.helix;
+      package = pkgs.helix;
       defaultEditor = true;
       extraPackages = with pkgs; [
         clippy

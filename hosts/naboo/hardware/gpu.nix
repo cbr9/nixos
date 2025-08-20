@@ -8,27 +8,15 @@
   hardware = {
     amdgpu = {
       initrd.enable = true;
-      amdvlk.enable = true;
     };
     graphics = {
       enable32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
         libva
-        amdvlk
         amf
-      ];
-
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-
+        mesa
       ];
     };
   };
-
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
 }
