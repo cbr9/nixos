@@ -1,6 +1,4 @@
 {
-  pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -12,7 +10,7 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       # organize = inputs.organize.defaultPackage.${system};
-      _1password-gui = prev._1password-gui.overrideAttrs (oldAttrs: {
+      _1password-gui = prev.unstable._1password-gui.overrideAttrs (oldAttrs: {
         postInstall =
           let
             commandLineArgs = [
@@ -33,7 +31,6 @@ in
   programs = {
     _1password.enable = true;
     _1password-gui = {
-      package = pkgs._1password-gui;
       enable = cfg.enable;
       polkitPolicyOwners = [ "cabero" ];
     };

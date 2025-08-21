@@ -422,10 +422,10 @@ binds {
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+H allow-inhibiting=false     { focus-monitor-left; }
+    Mod+Shift+J allow-inhibiting=false     { focus-monitor-down; }
+    Mod+Shift+K allow-inhibiting=false     { focus-monitor-up; }
+    Mod+Shift+L allow-inhibiting=false     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }

@@ -16,7 +16,7 @@
     programs.yazi = {
       enable = true;
       initLua = ./init.lua;
-      package = pkgs.yazi;
+      package = pkgs.unstable.yazi;
     };
   };
 }

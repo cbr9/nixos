@@ -28,7 +28,7 @@ in
 
     programs.helix = {
       enable = true;
-      package = pkgs.helix;
+      package = pkgs.unstable.helix;
       defaultEditor = true;
       extraPackages = with pkgs; [
         clippy
