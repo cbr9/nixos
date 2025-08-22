@@ -6,16 +6,16 @@
         enable = true;
         timeouts = [
           {
-            timeout = 300; # 5 minutes
+            timeout = 60 * 5;
             command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
           {
-            timeout = 330;
+            timeout = 60 * 10;
             command = "${pkgs.niri}/bin/niri msg output DP-2 off && ${pkgs.niri}/bin/niri msg output DP-3 off";
             resumeCommand = "${pkgs.niri}/bin/niri msg output DP-2 on && ${pkgs.niri}/bin/niri msg output DP-3 on";
           }
           {
-            timeout = 900; # 15 minutes
+            timeout = 60 * 60;
             command = "${pkgs.systemd}/bin/systemctl suspend";
           }
         ];
