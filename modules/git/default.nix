@@ -7,15 +7,6 @@
 {
   home-manager.users.cabero = {
     home.packages = [ pkgs.git-crypt ];
-    programs.fish.shellAbbrs = {
-      gr = "git restore";
-      gd = "git diff";
-      gs = "git status";
-      gc = "git commit";
-      ga = "git add";
-      gp = "git push";
-      gl = "git pull";
-    };
     programs.git = {
       enable = true;
       delta = {
@@ -28,12 +19,6 @@
         };
       };
       lfs.enable = true;
-      aliases = {
-        st = "status";
-        p = "push";
-        c = "commit";
-        a = "add";
-      };
 
       ignores = [
         "*~"
