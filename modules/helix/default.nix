@@ -11,9 +11,9 @@ let
 in
 {
 
-  nixpkgs.overlays = [
-    inputs.helix.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #   inputs.helix.overlays.default
+  # ];
 
   home-manager.users.cabero = {
     home.sessionVariables = rec {

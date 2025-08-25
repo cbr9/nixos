@@ -1,9 +1,13 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
-  nixpkgs.overlays = [
-    inputs.niri.overlays.default
-  ];
-  programs.niri.enable = true;
+  # nixpkgs.overlays = [
+  #   inputs.niri.overlays.default
+  # ];
+
+  programs.niri = {
+    enable = true;
+    package = pkgs.unstable.niri;
+  };
   services.displayManager.defaultSession = "niri";
 
   home-manager.users.cabero = {
