@@ -50,6 +50,7 @@
         ".cache/zellij"
         ".cargo"
         ".config/1Password"
+        ".config/Mullvad VPN"
         ".config/Todoist"
         ".config/spotify"
         ".config/obsidian"
