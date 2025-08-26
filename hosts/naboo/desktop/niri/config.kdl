@@ -370,12 +370,11 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+E hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "--noline"; }
-    Mod+T hotkey-overlay-title="Todoist" { spawn "google-chrome-stable" "--profile-directory=Default" "--app-id=dlgohinmglaoopaiplliaecdpmnepmga"; }
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" allow-inhibiting=false { spawn "swaylock" "-f"; }
-    Mod+B hotkey-overlay-title="Pick an item from the clipboard history" { spawn "select-from-clipboard"; }
+    Mod+D hotkey-overlay-title="Application Runner" { spawn "fuzzel"; }
+    Super+Alt+L hotkey-overlay-title="Screen Lock" allow-inhibiting=false { spawn "swaylock" "-f"; }
+    Mod+B hotkey-overlay-title="Clipboard Manager" { spawn "select-from-clipboard"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
