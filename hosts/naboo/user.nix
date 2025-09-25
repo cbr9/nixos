@@ -75,6 +75,7 @@
         appimage-run
         glow
         kalker
+        nixfmt-rfc-style
         just
         du-dust
         ffmpeg

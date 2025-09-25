@@ -48,6 +48,8 @@
         ".cache/helix"
         ".cache/nix"
         ".cache/zellij"
+        ".cache/uv"
+        ".cache/transformers"
         ".cargo"
         ".config/1Password"
         ".config/Mullvad VPN"
