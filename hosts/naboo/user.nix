@@ -36,6 +36,34 @@
   };
 
   home-manager.users.cabero = {
+    programs.ruff = {
+      enable = true;
+      settings = {
+        line-length = 120;
+      };
+    };
+    programs.vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        dracula-theme.theme-dracula
+        yzhang.markdown-all-in-one
+        esbenp.prettier-vscode
+        file-icons.file-icons
+        dracula-theme.theme-dracula
+        jnoortheen.nix-ide
+        ms-python.python
+        ms-toolsai.jupyter
+        antfu.icons-carbon
+        rust-lang.rust-analyzer
+        file-icons.file-icons
+        kamikillerto.vscode-colorize
+        ms-vscode-remote.remote-ssh
+        mechatroner.rainbow-csv
+        donjayamanne.githistory
+        davidanson.vscode-markdownlint
+        bbenoist.nix
+      ];
+    };
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";
@@ -49,6 +77,7 @@
         kalker
         just
         du-dust
+        ffmpeg
         sox
         uv
         typst
@@ -65,6 +94,7 @@
         qalculate-gtk
         spotify
         vlc
+        firefox-bin
         webtorrent_desktop
         obsidian
       ];
