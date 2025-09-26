@@ -13,10 +13,10 @@
             timeout = 60 * 15;
             command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
           }
-          {
-            timeout = 60 * 60;
-            command = "${pkgs.systemd}/bin/systemctl suspend";
-          }
+          # {
+          #   timeout = 60 * 60;
+          #   command = "${pkgs.systemd}/bin/systemctl suspend";
+          # }
         ];
         events = [
           {
