@@ -96,6 +96,7 @@
         spotify
         vlc
         firefox-bin
+        obs-studio
         webtorrent_desktop
         obsidian
       ];
