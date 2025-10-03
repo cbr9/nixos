@@ -42,6 +42,7 @@
       directories = [
         ".1password"
         ".1Password"
+        ".vscode"
         ".cache/spotify"
         ".cache/fish"
         ".cache/google-chrome"
@@ -56,6 +57,7 @@
         ".config/Mullvad VPN"
         ".config/Todoist"
         ".config/spotify"
+        ".config/Code"
         ".config/obsidian"
         ".config/obs-studio"
         ".config/google-chrome"

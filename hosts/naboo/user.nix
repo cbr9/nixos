@@ -44,25 +44,8 @@
     };
     programs.vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
-        yzhang.markdown-all-in-one
-        esbenp.prettier-vscode
-        file-icons.file-icons
-        dracula-theme.theme-dracula
-        jnoortheen.nix-ide
-        ms-python.python
-        ms-toolsai.jupyter
-        antfu.icons-carbon
-        rust-lang.rust-analyzer
-        file-icons.file-icons
-        kamikillerto.vscode-colorize
-        ms-vscode-remote.remote-ssh
-        mechatroner.rainbow-csv
-        donjayamanne.githistory
-        davidanson.vscode-markdownlint
-        bbenoist.nix
-      ];
+      package = pkgs.unstable.vscode;
+      mutableExtensionsDir = true;
     };
     home = rec {
       homeDirectory = "/home/${username}";
