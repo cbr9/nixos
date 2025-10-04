@@ -386,6 +386,7 @@ binds {
     XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true { spawn "wpctl" "set-volume" "--limit" "1.0" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
     XF86AudioMute        allow-inhibiting=false allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-inhibiting=false allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioPlay        allow-inhibiting=false allow-when-locked=true { spawn "playerctl" "play-pause"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

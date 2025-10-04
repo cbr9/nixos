@@ -69,6 +69,7 @@
         dysk
         fd
         ouch
+        playerctl
         poppler_utils
         ripgrep
         sd
