@@ -70,7 +70,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "DP-2" {
+output "DP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -104,6 +104,13 @@ output "DP-2" {
     position x=1280 y=0
 }
 
+output "DP-3" {
+    mode "1920x1080@60"
+    scale 1
+    transform "normal"
+    position x=3328 y=0
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -111,13 +118,6 @@ hotkey-overlay {
 cursor {
     xcursor-theme "macOS-White"
     xcursor-size 24
-}
-
-output "DP-3" {
-    mode "1920x1080@60"
-    scale 1
-    transform "normal"
-    position x=3328 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
