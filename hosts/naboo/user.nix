@@ -17,6 +17,7 @@
       "input"
       "wheel"
       "fuse"
+      "plugdev"
       "seat"
       "docker"
       "scanner"
@@ -27,6 +28,7 @@
   };
 
   services.pcscd.enable = true;
+  services.vscode-server.enable = true;
 
   home-manager.users.root = {
     programs.helix = config.home-manager.users.cabero.programs.helix;
@@ -70,15 +72,18 @@
         fd
         ouch
         playerctl
+        devenv
         poppler_utils
         ripgrep
         sd
         # GUI
         gparted
+        audacity
         google-chrome
         qalculate-gtk
         spotify
         vlc
+        unstable.keymapp
         firefox-bin
         obs-studio
         webtorrent_desktop

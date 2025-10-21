@@ -6,8 +6,8 @@
     enableIPv6 = true;
     dhcpcd.enable = true;
   };
-  services.mullvad-vpn = {
+  services.tailscale = {
     enable = true;
-    package = pkgs.mullvad-vpn;
+    package = pkgs.unstable.tailscale;
   };
 }
