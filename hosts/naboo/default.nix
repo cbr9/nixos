@@ -6,7 +6,7 @@
     ./desktop
     ./hardware
     ./hardware-configuration.nix
-    ./impermanence.nix
+    # ./impermanence.nix
     ./logitech.nix
     ./printing.nix
     ./user.nix
@@ -34,6 +34,7 @@
     ../../modules/zoxide
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_6_17;
   boot.kernelModules = [ "i2c-dev" ];
   system.stateVersion = "25.05";
   documentation.man.generateCaches = true;

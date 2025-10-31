@@ -5,14 +5,11 @@
 }:
 {
 
-  users.mutableUsers = false;
-  users.users.root.initialPassword = "1234";
+  users.mutableUsers = true;
 
   users.users.cabero = {
     createHome = true;
     isNormalUser = true;
-    linger = true;
-    initialPassword = "1234";
     extraGroups = [
       "input"
       "wheel"
@@ -28,7 +25,6 @@
   };
 
   services.pcscd.enable = true;
-  services.vscode-server.enable = true;
 
   home-manager.users.root = {
     programs.helix = config.home-manager.users.cabero.programs.helix;

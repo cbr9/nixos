@@ -20,40 +20,32 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    fsType = "tmpfs";
-    device = "none";
-    options = [
-      "defaults"
-      "size=16G"
-      "mode=755"
-    ];
-  };
+   fileSystems."/" =
+    { device = "/dev/disk/by-uuid/23b1edc2-ab3b-4fc4-a707-dbbd157ed0ea";
+      fsType = "btrfs";
+      options = [ "subvol=@nixos" ];
+    };
 
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/536883c7-c15b-4299-abb9-63fe5ef1fbfe";
-    fsType = "btrfs";
-    neededForBoot = true;
-    options = [
-      "subvol=persist"
-      "compress=zstd"
-      "noatime"
-    ]; # Mount the 'persist' subvolume
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/286E-0606";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-  fileSystems."/data" = {
-    device = "/dev/disk/by-uuid/f9479f9b-915b-4b68-99d5-1abc7e5df6bb";
-    fsType = "btrfs";
-    options = [
-      "compress=zstd"
-      "noatime"
-    ];
-  };
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/23b1edc2-ab3b-4fc4-a707-dbbd157ed0ea";
+      fsType = "btrfs";
+      options = [ "subvol=@home" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/01E6-9825";
-    fsType = "vfat";
-  };
+  fileSystems."/data" =
+    { device = "/dev/disk/by-uuid/f9479f9b-915b-4b68-99d5-1abc7e5df6bb";
+      fsType = "btrfs";
+    };
+
+  swapDevices = [
+    {device = "/swapfile"; }
+  ];
 
   services.udev = {
     enable = true;

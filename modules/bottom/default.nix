@@ -1,8 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home-manager.users.cabero = {
     programs.bottom = {
       enable = true;
+      package = pkgs.unstable.bottom;
       settings = {
         flags = {
           color = "gruvbox";

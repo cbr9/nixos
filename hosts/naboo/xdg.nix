@@ -64,7 +64,6 @@ let
   userDirs = [
     "Code"
     "Desktop"
-    "GDrive"
     "Documents"
     "Downloads"
     "Music"
