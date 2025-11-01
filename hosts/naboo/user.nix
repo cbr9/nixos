@@ -45,6 +45,13 @@
       package = pkgs.unstable.vscode;
       mutableExtensionsDir = true;
     };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+      };
+    };
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";
@@ -74,6 +81,7 @@
         sd
         # GUI
         gparted
+        adwaita-icon-theme
         audacity
         google-chrome
         qalculate-gtk
