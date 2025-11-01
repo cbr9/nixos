@@ -6,8 +6,6 @@
     ./desktop
     ./hardware
     ./hardware-configuration.nix
-    # ./impermanence.nix
-    ./logitech.nix
     ./printing.nix
     ./user.nix
     ./xdg.nix
