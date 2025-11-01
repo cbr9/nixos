@@ -56,6 +56,13 @@
       homeDirectory = "/home/${username}";
       stateVersion = "25.05";
       username = "cabero";
+      pointerCursor = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+        gtk.enable = true;
+        x11.enable = true;
+        size = 24;
+      };
       packages = with pkgs; [
         # CLI
         sops

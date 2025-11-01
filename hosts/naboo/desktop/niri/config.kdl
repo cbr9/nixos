@@ -116,7 +116,7 @@ hotkey-overlay {
 }
 
 cursor {
-    xcursor-theme "macOS-White"
+    xcursor-theme "Adwaita"
     xcursor-size 24
 }
 
