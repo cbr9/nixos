@@ -79,6 +79,7 @@
         typst
         watchexec
         dysk
+        dua
         fd
         ouch
         playerctl
@@ -88,6 +89,7 @@
         sd
         # GUI
         gparted
+        loupe
         adwaita-icon-theme
         audacity
         google-chrome
