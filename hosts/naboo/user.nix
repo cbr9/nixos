@@ -101,6 +101,7 @@
         obs-studio
         webtorrent_desktop
         obsidian
+        snapshot
       ];
     };
     programs.home-manager.enable = true;

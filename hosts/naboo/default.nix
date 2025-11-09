@@ -47,6 +47,12 @@
     pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   };
 
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+    storageDriver = "btrfs";
+  };
+
   networking.hostName = "naboo";
   environment.systemPackages = with pkgs; [
     killall

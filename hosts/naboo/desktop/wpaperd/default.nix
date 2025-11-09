@@ -5,6 +5,7 @@
       enable = true;
       settings.any = {
         path = "~/Pictures/Wallpapers";
+        duration = "10min";
       };
     };
   };
