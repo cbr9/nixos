@@ -10,6 +10,11 @@ rec {
   services.tailscale = {
     enable = true;
     package = pkgs.unstable.tailscale;
+    extraSetFlags = [
+      "--operator=cabero"
+      "--exit-node-allow-lan-access"
+      "--exit-node=de-fra-wg-002.mullvad.ts.net"
+    ];
   };
 
   systemd.services.taildrop =
