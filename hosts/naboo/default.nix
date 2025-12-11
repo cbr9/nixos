@@ -31,6 +31,11 @@
     ../../modules/yazi
     ../../modules/zoxide
   ];
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_6_17;
   boot.kernelModules = [ "i2c-dev" ];

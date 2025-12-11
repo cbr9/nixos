@@ -69,7 +69,6 @@
         gemini-cli
         appimage-run
         glow
-        kalker
         nixfmt-rfc-style
         just
         du-dust
@@ -91,16 +90,13 @@
         gparted
         loupe
         adwaita-icon-theme
-        audacity
+        anki-bin
         google-chrome
         qalculate-gtk
-        spotify
+        unstable.spotify
         vlc
         unstable.keymapp
-        firefox-bin
-        obs-studio
         webtorrent_desktop
-        obsidian
         snapshot
       ];
     };
