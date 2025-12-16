@@ -26,25 +26,14 @@
 
   services.pcscd.enable = true;
 
-  home-manager.users.root = {
-    programs.helix = config.home-manager.users.cabero.programs.helix;
-    programs.yazi = config.home-manager.users.cabero.programs.yazi;
-    home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
-    programs.home-manager.enable = true;
-  };
+  # home-manager.users.root = {
+  #   programs.helix = config.home-manager.users.cabero.programs.helix;
+  #   programs.yazi = config.home-manager.users.cabero.programs.yazi;
+  #   home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
+  #   programs.home-manager.enable = true;
+  # };
 
   home-manager.users.cabero = {
-    programs.ruff = {
-      enable = true;
-      settings = {
-        line-length = 120;
-      };
-    };
-    programs.vscode = {
-      enable = true;
-      package = pkgs.unstable.vscode;
-      mutableExtensionsDir = true;
-    };
     gtk = {
       enable = true;
       iconTheme = {
@@ -71,7 +60,7 @@
         glow
         nixfmt-rfc-style
         just
-        du-dust
+        dust
         ffmpeg
         sox
         uv
@@ -83,7 +72,7 @@
         ouch
         playerctl
         devenv
-        poppler_utils
+        poppler-utils
         ripgrep
         sd
         # GUI

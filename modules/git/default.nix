@@ -7,16 +7,20 @@
 {
   home-manager.users.cabero = {
     home.packages = [ pkgs.git-crypt ];
+    programs.delta = {
+
+      enable = true;
+      options = {
+        hyperlinks = true;
+        side-by-side = true;
+        line-numbers = true;
+        dark = true;
+      };
+      enableGitIntegration = true;
+    };
     programs.git = {
       enable = true;
       delta = {
-        enable = true;
-        options = {
-          hyperlinks = true;
-          side-by-side = true;
-          line-numbers = true;
-          dark = true;
-        };
       };
       lfs.enable = true;
 
@@ -24,7 +28,7 @@
         "*~"
         "*.swp"
       ];
-      extraConfig = {
+      settings = {
         merge.conflictstyle = "diff3";
         core = {
           editor = "hx";
