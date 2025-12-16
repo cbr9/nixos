@@ -285,7 +285,7 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "1password" "--silent"
+// spawn-at-startup "1password" "--silent"
 spawn-at-startup "tailscale" "systray"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -326,6 +326,13 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match title="REDlauncher"
+    match title="The Witcher 3"
+    match title="Steam"
+    open-on-output "HDMI-A-1"
 }
 
 window-rule {
@@ -433,10 +440,10 @@ binds {
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H allow-inhibiting=false     { focus-monitor-left; }
-    Mod+Shift+J allow-inhibiting=false     { focus-monitor-down; }
-    Mod+Shift+K allow-inhibiting=false     { focus-monitor-up; }
-    Mod+Shift+L allow-inhibiting=false     { focus-monitor-right; }
+    Mod+Shift+H allow-inhibiting=true     { focus-monitor-left; }
+    Mod+Shift+J allow-inhibiting=true     { focus-monitor-down; }
+    Mod+Shift+K allow-inhibiting=true     { focus-monitor-up; }
+    Mod+Shift+L allow-inhibiting=true     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }

@@ -75,7 +75,7 @@
         ffmpeg
         sox
         uv
-        typst
+        unstable.typst
         watchexec
         dysk
         dua
