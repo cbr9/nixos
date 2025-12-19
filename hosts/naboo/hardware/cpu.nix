@@ -7,7 +7,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.microcodeAmd
+    pkgs.microcode-amd
   ];
 
   virtualisation.libvirtd.enable = true;

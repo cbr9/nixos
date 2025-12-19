@@ -11,7 +11,12 @@ in
   home-manager.users.cabero = {
     programs.ssh = {
       enable = true;
-      forwardAgent = true;
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          forwardAgent = true;
+        };
+      };
       extraConfig = lib.optionalString cfg.enable "IdentityAgent ${agent}";
     };
   };

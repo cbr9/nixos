@@ -26,6 +26,13 @@ in
       ./settings.nix
     ];
 
+    programs.ruff = {
+      enable = true;
+      settings = {
+        line-length = 120;
+      };
+    };
+
     programs.helix = {
       enable = true;
       package = pkgs.unstable.helix;
