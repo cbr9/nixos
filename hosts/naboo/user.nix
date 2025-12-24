@@ -43,7 +43,7 @@
     };
     home = rec {
       homeDirectory = "/home/${username}";
-      stateVersion = "25.05";
+      stateVersion = "25.11";
       username = "cabero";
       pointerCursor = {
         package = pkgs.adwaita-icon-theme;

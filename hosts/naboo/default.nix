@@ -41,7 +41,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "i2c-dev" ];
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
   documentation.man.generateCaches = true;
   powerManagement.enable = true;
   programs.appimage = {
