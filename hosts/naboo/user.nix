@@ -87,6 +87,7 @@
         unstable.keymapp
         webtorrent_desktop
         snapshot
+        obsidian
       ];
     };
     programs.home-manager.enable = true;
