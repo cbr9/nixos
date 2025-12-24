@@ -19,7 +19,16 @@
   ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.resumeDevice = "/dev/disk/by-uuid/23b1edc2-ab3b-4fc4-a707-dbbd157ed0ea";
+  boot.kernelParams = [
+    "resume_offset=46933248"
+    "mem_sleep_default=deep"
+  ];
+  swapDevices = [
+    { device = "/swapfile"; }
+  ];
 
+  boot.initrd.supportedFilesystems = [ "btrfs" ];
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/23b1edc2-ab3b-4fc4-a707-dbbd157ed0ea";
     fsType = "btrfs";
@@ -46,9 +55,9 @@
     fsType = "btrfs";
   };
 
-  swapDevices = [
-    { device = "/swapfile"; }
-  ];
+  # swapDevices = [
+  #   { device = "/swapfile"; }
+  # ];
 
   services.udev = {
     enable = true;
