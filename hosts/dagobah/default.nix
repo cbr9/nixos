@@ -115,6 +115,8 @@
       "iina" # Video player
       "rectangle" # Window management
       "notion-calendar"
+      "notion-mail"
+      "notion"
     ];
   };
 }
