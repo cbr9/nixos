@@ -27,6 +27,9 @@ in
         "*" = {
           forwardAgent = true;
         };
+        machine-shop-open-toadfish = {
+          user = "cabero";
+        };
       };
       extraConfig = lib.optionalString cfg.enable "IdentityAgent \"${agent}\"";
     };

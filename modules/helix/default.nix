@@ -11,9 +11,9 @@ let
 in
 {
 
-  # nixpkgs.overlays = [
-  #   inputs.helix.overlays.default
-  # ];
+  nixpkgs.overlays = [
+    inputs.helix.overlays.default
+  ];
 
   home-manager.users.cabero = {
     home.sessionVariables = rec {
@@ -35,7 +35,7 @@ in
 
     programs.helix = {
       enable = true;
-      package = pkgs.unstable.helix;
+      package = pkgs.helix;
       defaultEditor = true;
       extraPackages = with pkgs; [
         clippy

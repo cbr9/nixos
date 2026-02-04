@@ -3,6 +3,7 @@
   nixpkgs.overlays = [
     inputs.yazi.overlays.default
   ];
+
   home-manager.users.cabero = {
     imports = [
       ./plugins
@@ -16,7 +17,7 @@
     programs.yazi = {
       enable = true;
       initLua = ./init.lua;
-      package = pkgs.unstable.yazi;
+      package = pkgs.yazi;
     };
   };
 }

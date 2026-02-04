@@ -42,7 +42,7 @@
       cursorline = true;
       cursorcolumn = true;
       default-line-ending = "lf";
-      # rainbow-brackets = true;
+      rainbow-brackets = true;
       end-of-line-diagnostics = "hint";
       insert-final-newline = false;
       gutters = [

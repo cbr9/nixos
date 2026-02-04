@@ -63,7 +63,7 @@
   # Keyboard settings
   system.keyboard = {
     enableKeyMapping = true;
-    remapCapsLockToEscape = true;
+    remapCapsLockToEscape = false;
   };
 
   # macOS system preferences
@@ -114,6 +114,7 @@
     casks = [
       "iina" # Video player
       "rectangle" # Window management
+      "notion-calendar"
     ];
   };
 }
