@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  isLinux ? false,
+  isDarwin ? false,
+  ...
+}:
 {
   programs.yazi.settings = {
     plugin = {
@@ -23,11 +29,22 @@
           desc = "Helix";
         }
       ];
+    }
+    // lib.optionalAttrs isLinux {
       play = [
         {
           run = "${pkgs.vlc}/bin/vlc $@";
           orphan = true;
           desc = "VLC";
+        }
+      ];
+    }
+    // lib.optionalAttrs isDarwin {
+      play = [
+        {
+          run = "open -a 'IINA' $@";
+          orphan = true;
+          desc = "IINA";
         }
       ];
     };

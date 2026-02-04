@@ -7,8 +7,8 @@
     ./hardware
     ./hardware-configuration.nix
     ./printing.nix
-    ./user.nix
     ./xdg.nix
+    ../../modules/user
     ../../modules/1password
     ../../modules/atuin
     ../../modules/bat

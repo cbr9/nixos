@@ -6,8 +6,9 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     yazi.url = "github:sxyazi/yazi";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     helix.url = "github:helix-editor/helix";
     niri.url = "github:YaLTeR/niri";
     nix-index-database = {
@@ -19,91 +20,104 @@
   outputs =
     { ... }@inputs:
     let
-      system = "x86_64-linux";
       mkLib = nixpkgs: nixpkgs.lib.extend (final: prev: (import ./lib final));
       lib = mkLib inputs.nixpkgs;
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations =
-        with inputs;
-        with builtins;
+
+      # Helper to create NixOS configurations with common settings
+      mkNixOSHost =
         {
-          naboo = lib.nixosSystem rec {
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs system; };
-
-            modules = [
-              nix-index-database.nixosModules.nix-index
-
-              (
-                { modulesPath, ... }:
-                rec {
-                  networking.hostName = "naboo";
-                  imports = [
-                    (modulesPath + "/installer/scan/not-detected.nix")
-                    (modulesPath + "/profiles/qemu-guest.nix")
-                    ./hosts/${networking.hostName}
-                  ];
-                }
-              )
-
-              home-manager.nixosModules.home-manager
+          system,
+          hostname,
+          extraModules ? [ ],
+        }:
+        lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs system lib;
+            isLinux = true;
+            isDarwin = false;
+          };
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            inputs.nix-index-database.nixosModules.nix-index
+            ./modules/home-manager
+            (
+              { modulesPath, ... }:
               {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "backup";
-                home-manager.extraSpecialArgs = {
-                  flakePath = "/data/cabero/Code/dotfiles";
-                  inherit inputs;
-                };
-                home-manager.sharedModules = [
-                  nix-index-database.homeModules.nix-index
+                networking.hostName = hostname;
+                imports = [
+                  (modulesPath + "/installer/scan/not-detected.nix")
+                  (modulesPath + "/profiles/qemu-guest.nix")
+                  ./hosts/${hostname}
                 ];
               }
-            ];
-          };
-          # work laptop
-          dagobah = lib.nixosSystem rec {
-            inherit lib;
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs system; };
-
-            modules = [
-              nixos-wsl.nixosModules.default
-              (
-                { ... }:
-                {
-                  imports = [ ./hosts/dagobah ];
-                }
-              )
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "backup";
-                home-manager.extraSpecialArgs = {
-                  flakePath = "/home/cabero/Code/dotfiles";
-                  inherit inputs;
-                };
-                home-manager.sharedModules = [
-                  nix-index-database.homeModules.nix-index
-                ];
-              }
-            ];
-          };
+            )
+          ]
+          ++ extraModules;
         };
 
-      devShells.${system}.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
-          git-crypt
-          nixfmt-rfc-style
-          nixd
-          git-lfs
-          git
-          nix-prefetch-github
-          just
-        ];
+      # Helper to create Darwin configurations with common settings
+      mkDarwinHost =
+        {
+          system,
+          hostname,
+          extraModules ? [ ],
+        }:
+        inputs.nix-darwin.lib.darwinSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs system lib;
+            isLinux = false;
+            isDarwin = true;
+          };
+          modules = [
+            inputs.home-manager.darwinModules.home-manager
+            ./modules/home-manager
+            ./hosts/${hostname}
+          ]
+          ++ extraModules;
+        };
+
+      # Supported systems for devShells
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+      forAllSystems = lib.genAttrs supportedSystems;
+    in
+    {
+      nixosConfigurations = {
+        naboo = mkNixOSHost {
+          system = "x86_64-linux";
+          hostname = "naboo";
+        };
       };
+
+      darwinConfigurations = {
+        dagobah = mkDarwinHost {
+          system = "aarch64-darwin";
+          hostname = "dagobah";
+        };
+      };
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              git-crypt
+              nixfmt-rfc-style
+              nixd
+              git-lfs
+              git
+              nix-prefetch-github
+              just
+            ];
+          };
+        }
+      );
     };
 }

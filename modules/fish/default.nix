@@ -2,11 +2,12 @@
   pkgs,
   config,
   lib,
+  isLinux ? false,
   ...
 }:
 {
   programs.fish.enable = true;
-  documentation.man.generateCaches = lib.mkForce false;
+  environment.shells = [ pkgs.fish ];
 
   home-manager.users.cabero =
     let
@@ -66,4 +67,7 @@
         ];
       };
     };
+}
+// lib.optionalAttrs isLinux {
+  documentation.man.generateCaches = lib.mkForce false;
 }

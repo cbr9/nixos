@@ -1,14 +1,25 @@
 {
   config,
   lib,
+  isLinux ? false,
+  isDarwin ? false,
   ...
 }:
 let
   cfg = config.programs._1password;
-  agent = "${config.home-manager.users.cabero.home.homeDirectory}/.1password/agent.sock";
+  homeDir = config.home-manager.users.cabero.home.homeDirectory;
+  agent =
+    if isDarwin then
+      "${homeDir}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    else
+      "${homeDir}/.1password/agent.sock";
 in
 {
   home-manager.users.cabero = {
+    home.sessionVariables = lib.optionalAttrs cfg.enable {
+      SSH_AUTH_SOCK = agent;
+    };
+
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
@@ -17,7 +28,7 @@ in
           forwardAgent = true;
         };
       };
-      extraConfig = lib.optionalString cfg.enable "IdentityAgent ${agent}";
+      extraConfig = lib.optionalString cfg.enable "IdentityAgent \"${agent}\"";
     };
   };
 }

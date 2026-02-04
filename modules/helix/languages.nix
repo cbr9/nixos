@@ -1,9 +1,23 @@
 {
   pkgs,
+  lib,
   flakePath,
-  nixosConfig,
+  nixosConfig ? null,
+  darwinConfig ? null,
+  isLinux ? false,
+  isDarwin ? false,
   ...
 }:
+let
+  hostname =
+    if nixosConfig != null then
+      nixosConfig.networking.hostName
+    else if darwinConfig != null then
+      darwinConfig.networking.hostName
+    else
+      "unknown";
+  configType = if isLinux then "nixosConfigurations" else "darwinConfigurations";
+in
 {
   # keep this for the future
   programs.helix.languages = {
@@ -13,22 +27,6 @@
         args = [ "--stdio" ];
         config = { }; # <- this is the important line
       };
-      # nil = {
-      #   command = "nil";
-      #   config = {
-      #     formatting = {
-      #       command = [ "nixfmt" ];
-      #     };
-      #     nix = {
-      #       maxMemoryMB = 16000;
-      #       flake = {
-      #         autoArchive = true;
-      #         autoEvalInputs = true;
-      #       };
-
-      #     };
-      #   };
-      # };
       nixd = {
         command = "nixd";
         args = [ ];
@@ -45,10 +43,10 @@
             };
             options = {
               nixos = {
-                expr = "${flake}.nixosConfigurations.${nixosConfig.networking.hostName}.options";
+                expr = "${flake}.${configType}.${hostname}.options";
               };
               home-manager = {
-                expr = "${flake}.nixosConfigurations.${nixosConfig.networking.hostName}.options.home-manager.users.type.getSubOptions []";
+                expr = "${flake}.${configType}.${hostname}.options.home-manager.users.type.getSubOptions []";
               };
             };
           };

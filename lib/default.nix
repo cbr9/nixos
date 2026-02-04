@@ -1,4 +1,20 @@
 lib: rec {
+  # Platform detection helpers
+  isDarwin = system: lib.hasSuffix "-darwin" system;
+  isLinux = system: lib.hasSuffix "-linux" system;
+  forPlatform =
+    system:
+    {
+      darwin ? null,
+      linux ? null,
+      default ? null,
+    }:
+    if isDarwin system then
+      (if darwin != null then darwin else default)
+    else if isLinux system then
+      (if linux != null then linux else default)
+    else
+      default;
   indexOf =
     element: list:
     let
