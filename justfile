@@ -1,7 +1,16 @@
 switch:
-	# rm /home/cabero/.config/mimeapps.list.backup
-	sudo nixos-rebuild switch --flake . --impure
+	#!/usr/bin/env bash
+	if [[ "$(uname)" == "Darwin" ]]; then
+		sudo darwin-rebuild switch --flake .
+	else
+		sudo nixos-rebuild switch --flake .
+	fi
 
 update:
+	#!/usr/bin/env bash
 	nix flake update
-	sudo nixos-rebuild switch --flake . --impure
+	if [[ "$(uname)" == "Darwin" ]]; then
+		sudo darwin-rebuild switch --flake .
+	else
+		sudo nixos-rebuild switch --flake .
+	fi

@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -95,10 +96,13 @@
   };
 
   # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-  ];
+  fonts.packages =
+    with pkgs;
+    [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+    ]
+    ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
 
   # Homebrew integration (for GUI apps not in nixpkgs or casks)
   homebrew = {

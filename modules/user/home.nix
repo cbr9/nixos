@@ -52,8 +52,9 @@ let
   ];
 
   darwinPackages = with pkgs; [
-
-    # macOS-specific packages can be added here
+    unstable.raycast
+    alt-tab-macos
+    betterdisplay
   ];
 in
 {
