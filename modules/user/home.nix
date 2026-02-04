@@ -33,7 +33,7 @@ let
     # GUI apps (cross-platform)
     adwaita-icon-theme
     anki-bin
-    kitty
+    alacritty
     google-chrome
     qalculate-gtk
     unstable.spotify
@@ -52,6 +52,7 @@ let
   ];
 
   darwinPackages = with pkgs; [
+
     # macOS-specific packages can be added here
   ];
 in
