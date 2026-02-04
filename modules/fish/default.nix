@@ -42,6 +42,9 @@
             source ${HOME}/.config/fish/themes/gruvbox.fish
             theme_gruvbox dark medium
 
+            set -gx fish_color_autosuggestion 555
+            set -gx fish_pager_color_selected_background --background=brblack
+
 
 
             if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish

@@ -33,6 +33,7 @@ let
     # GUI apps (cross-platform)
     adwaita-icon-theme
     anki-bin
+    kitty
     google-chrome
     qalculate-gtk
     unstable.spotify
