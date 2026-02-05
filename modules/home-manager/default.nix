@@ -10,7 +10,7 @@
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = {
-    flakePath = "/data/cabero/Code/dotfiles";
+    flakePath = config.flakePath;
     inherit inputs isLinux isDarwin;
     nixosConfig = if isLinux then config else null;
     darwinConfig = if isDarwin then config else null;

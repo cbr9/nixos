@@ -1,12 +1,11 @@
 {
-  config,
   pkgs,
-  inputs,
   lib,
   ...
 }:
 
 {
+  flakePath = "/Users/cabero/Code/nixos";
   imports = [
     # General-purpose modules from naboo
     ../../modules/1password

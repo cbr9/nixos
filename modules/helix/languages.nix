@@ -1,11 +1,9 @@
 {
   pkgs,
-  lib,
   flakePath,
   nixosConfig ? null,
   darwinConfig ? null,
   isLinux ? false,
-  isDarwin ? false,
   ...
 }:
 let

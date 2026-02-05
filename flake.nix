@@ -40,6 +40,7 @@
           modules = [
             inputs.home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.nix-index
+            ./modules/options.nix
             ./modules/home-manager
             (
               { modulesPath, ... }:
@@ -72,6 +73,7 @@
           };
           modules = [
             inputs.home-manager.darwinModules.home-manager
+            ./modules/options.nix
             ./modules/home-manager
             ./hosts/${hostname}
           ]

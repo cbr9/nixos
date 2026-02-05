@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  flakePath = "/data/cabero/Code/dotfiles";
   imports = [
     ./base
     ./fonts
