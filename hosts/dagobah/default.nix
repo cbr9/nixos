@@ -74,12 +74,13 @@
       FXPreferredViewStyle = "clmv"; # Column view
       ShowPathbar = true;
       ShowStatusBar = true;
+      NewWindowTarget = "Home";
     };
     NSGlobalDomain = {
       AppleKeyboardUIMode = 3; # Full keyboard control
       ApplePressAndHoldEnabled = false; # Key repeat instead of accents
-      InitialKeyRepeat = 15;
-      KeyRepeat = 1;
+      InitialKeyRepeat = 10;
+      KeyRepeat = 0;
       AppleShowAllExtensions = true;
       NSWindowShouldDragOnGesture = true;
       NSDocumentSaveNewDocumentsToCloud = false;
