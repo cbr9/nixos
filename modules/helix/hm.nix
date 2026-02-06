@@ -35,7 +35,8 @@
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
       typescript-language-server
-      ruff
+      unstable.ruff
+      unstable.ty
       shellcheck
       taplo
       rust-analyzer

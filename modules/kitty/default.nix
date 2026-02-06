@@ -23,6 +23,7 @@ with lib;
         window_padding_width = 5;
         cursor_blink_interval = 0;
         tab_bar_edge = "bottom";
+        macos_thicken_font = 0.80;
         tab_bar_min_tabs = 2;
       };
       extraConfig = ''

@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -21,6 +22,7 @@
     ../../modules/helix
     ../../modules/lazygit
     ../../modules/nix
+    ../../modules/kitty
     ../../modules/nix-index
     ../../modules/nushell
     ../../modules/pueue
@@ -59,12 +61,6 @@
   # Touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  # Keyboard settings
-  system.keyboard = {
-    enableKeyMapping = true;
-    remapCapsLockToEscape = false;
-  };
-
   # macOS system preferences
   system.defaults = {
     dock = {
@@ -83,14 +79,18 @@
       AppleKeyboardUIMode = 3; # Full keyboard control
       ApplePressAndHoldEnabled = false; # Key repeat instead of accents
       InitialKeyRepeat = 15;
-      KeyRepeat = 2;
+      KeyRepeat = 1;
       AppleShowAllExtensions = true;
-      NSAutomaticCapitalizationEnabled = false;
-      NSAutomaticSpellingCorrectionEnabled = false;
+      NSWindowShouldDragOnGesture = true;
+      NSDocumentSaveNewDocumentsToCloud = false;
+    };
+    screencapture = {
+      location = "${config.home-manager.users.cabero.home.homeDirectory}/Pictures/Screenshots";
     };
     trackpad = {
       Clicking = true; # Tap to click
-      TrackpadThreeFingerDrag = true;
+      Dragging = true;
+      DragLock = true;
     };
   };
 
