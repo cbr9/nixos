@@ -77,7 +77,8 @@
                   config.allowUnfree = true;
                 };
               })
-            ] ++ extraOverlays;
+            ]
+            ++ extraOverlays;
           };
           extraSpecialArgs = {
             inherit inputs system;
@@ -90,7 +91,8 @@
           modules = [
             inputs.nix-index-database.homeModules.nix-index
             ./hosts/${hostname}
-          ] ++ extraModules;
+          ]
+          ++ extraModules;
         };
 
       # Helper to create Darwin configurations with common settings
@@ -139,9 +141,9 @@
       };
 
       homeConfigurations = {
-        coruscant = mkHomeManagerHost {
+        machine-shop-open-toadfish = mkHomeManagerHost {
           system = "x86_64-linux";
-          hostname = "coruscant";
+          hostname = "machine-shop";
           extraOverlays = [
             inputs.helix.overlays.default
             inputs.yazi.overlays.default

@@ -7,6 +7,11 @@
 }:
 let
   flake = "(builtins.getFlake \"${flakePath}\")";
+  oldPkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/01b6809f7f9d1183a2b3e081f0a1e6f8f415cb09.tar.gz";
+    sha256 = "sha256:00z9fndpvv993bkzkn3hnmkhxqigb5n2g0l83r5l1i2i8n6d6d0d";
+  }) { system = pkgs.system; };
+
 in
 {
   imports = [
@@ -36,29 +41,30 @@ in
     homeDirectory = "/home/cabero";
     stateVersion = "25.11";
 
-    packages = with pkgs; [
-      sops
-      gemini-cli
-      glow
-      nixfmt-rfc-style
-      just
-      dust
-      ffmpeg
-      sox
-      helix
-      uv
-      unstable.typst
-      watchexec
-      dysk
-      dua
-      fd
-      ouch
-      devenv
-      poppler-utils
-      ripgrep
-      claude-code
-      sd
-    ];
+    packages =
+      with pkgs;
+      [
+        sops
+        gemini-cli
+        glow
+        nixfmt-rfc-style
+        just
+        dust
+        ffmpeg
+        sox
+        unstable.typst
+        watchexec
+        dysk
+        dua
+        fd
+        ouch
+        devenv
+        poppler-utils
+        ripgrep
+        claude-code
+        sd
+      ]
+      ++ [ oldPkgs.uv ];
   };
 
   programs = {
@@ -72,7 +78,7 @@ in
         nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
         formatting.command = [ "nixfmt" ];
         options = {
-          home-manager.expr = lib.mkForce "${flake}.homeConfigurations.coruscant.options";
+          home-manager.expr = lib.mkForce "${flake}.homeConfigurations.machine-shop.options";
         };
       };
     };
