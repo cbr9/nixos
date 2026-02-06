@@ -57,6 +57,42 @@
           ++ extraModules;
         };
 
+      # Helper to create standalone home-manager configurations (non-NixOS Linux)
+      mkHomeManagerHost =
+        {
+          system,
+          hostname,
+          extraOverlays ? [ ],
+          extraModules ? [ ],
+        }:
+        inputs.home-manager.lib.homeManagerConfiguration {
+          inherit lib;
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                unstable = import inputs.nixpkgs-unstable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+              })
+            ] ++ extraOverlays;
+          };
+          extraSpecialArgs = {
+            inherit inputs system;
+            isLinux = lib.isLinux system;
+            isDarwin = lib.isDarwin system;
+            flakePath = "/home/cabero/Code/nixos";
+            nixosConfig = null;
+            darwinConfig = null;
+          };
+          modules = [
+            inputs.nix-index-database.homeModules.nix-index
+            ./hosts/${hostname}
+          ] ++ extraModules;
+        };
+
       # Helper to create Darwin configurations with common settings
       mkDarwinHost =
         {
@@ -99,6 +135,17 @@
         dagobah = mkDarwinHost {
           system = "aarch64-darwin";
           hostname = "dagobah";
+        };
+      };
+
+      homeConfigurations = {
+        coruscant = mkHomeManagerHost {
+          system = "x86_64-linux";
+          hostname = "coruscant";
+          extraOverlays = [
+            inputs.helix.overlays.default
+            inputs.yazi.overlays.default
+          ];
         };
       };
 

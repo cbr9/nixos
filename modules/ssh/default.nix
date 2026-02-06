@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  isLinux ? false,
   isDarwin ? false,
   ...
 }:
@@ -16,22 +15,10 @@ let
 in
 {
   home-manager.users.cabero = {
+    imports = [ ./hm.nix ];
     home.sessionVariables = lib.optionalAttrs cfg.enable {
       SSH_AUTH_SOCK = agent;
     };
-
-    programs.ssh = {
-      enable = true;
-      enableDefaultConfig = false;
-      matchBlocks = {
-        "*" = {
-          forwardAgent = true;
-        };
-        machine-shop-open-toadfish = {
-          user = "cabero";
-        };
-      };
-      extraConfig = lib.optionalString cfg.enable "IdentityAgent \"${agent}\"";
-    };
+    programs.ssh.extraConfig = lib.optionalString cfg.enable "IdentityAgent \"${agent}\"";
   };
 }

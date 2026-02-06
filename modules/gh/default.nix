@@ -1,8 +1,6 @@
 { ... }:
 {
   home-manager.users.cabero = {
-    programs.gh = {
-      enable = true;
-    };
+    imports = [ ./hm.nix ];
   };
 }

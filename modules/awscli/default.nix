@@ -1,8 +1,6 @@
 { ... }:
 {
   home-manager.users.cabero = {
-    programs.awscli = {
-      enable = true;
-    };
+    imports = [ ./hm.nix ];
   };
 }
