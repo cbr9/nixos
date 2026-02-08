@@ -10,7 +10,9 @@ default:
 
 switch:
 	#!/usr/bin/env bash
-	if [[ "$(uname)" == "Darwin" ]]; then
+	if [[ "$(hostname)" == machine-shop* ]]; then
+		home-manager switch --flake ".#$(hostname)"
+	elif [[ "$(uname)" == "Darwin" ]]; then
 		sudo darwin-rebuild switch --flake .
 	else
 		sudo nixos-rebuild switch --flake .
@@ -19,7 +21,9 @@ switch:
 update:
 	#!/usr/bin/env bash
 	nix flake update
-	if [[ "$(uname)" == "Darwin" ]]; then
+	if [[ "$(hostname)" == machine-shop* ]]; then
+		home-manager switch --flake ".#$(hostname)"
+	elif [[ "$(uname)" == "Darwin" ]]; then
 		sudo darwin-rebuild switch --flake .
 	else
 		sudo nixos-rebuild switch --flake .
