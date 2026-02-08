@@ -11,20 +11,18 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
+
+    # abbreviations
     preferAbbrs = true;
     shellAbbrs = {
       gp = "git push";
     };
 
-    functions = {
-      fish_user_key_bindings = ''
-        # To find out what sequence a key combination sends, you can use fish_key_reader
-        bind \el accept-autosuggestion  # alt+l
-        bind \ek up-or-search # alt+k
-        bind \ej down-or-search # alt+j
-        bind \ce edit_command_buffer
-        bind \cw 'set old_tty (stty -g); stty sane; yy; stty $old_tty; commandline -f repaint'
-      '';
+    # keybindings
+    binds = {
+      "ctrl-e".command = "edit_command_buffer";
+      "ctrl-w".command = "set old_tty (stty -g); stty sane; yy; stty $old_tty; commandline -f repaint";
+      "alt-l".command = "accept-autosuggestion";
     };
 
     shellInit =
@@ -38,8 +36,6 @@
 
         set -gx fish_color_autosuggestion 555
         set -gx fish_pager_color_selected_background --background=brblack
-
-
 
         if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish
           source ${HOME}/.nix-profile/etc/profile.d/nix.fish

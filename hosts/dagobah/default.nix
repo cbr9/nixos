@@ -121,6 +121,7 @@
       "notion-calendar"
       "notion-mail"
       "google-chrome"
+      "firefox"
       "notion"
     ];
   };
