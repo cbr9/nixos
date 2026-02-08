@@ -380,7 +380,7 @@ binds {
     Mod+E hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "--noline"; }
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Ctrl+Shift+Space hotkey-overlay-title="1Password Quick Access" { spawn "1password" "--ozone-platform=wayland" "--quick-access"; }
-    Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Application Runner" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Screen Lock" allow-inhibiting=false { spawn "swaylock" "-f"; }
     Mod+B hotkey-overlay-title="Clipboard Manager" { spawn "select-from-clipboard"; }

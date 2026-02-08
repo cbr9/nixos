@@ -16,7 +16,7 @@
     ../../modules/bottom
     ../../modules/awscli
     ../../modules/zellij
-    ../../modules/kitty
+    ../../modules/ghostty
     ../../modules/direnv
     ../../modules/fish
     ../../modules/fzf

@@ -44,11 +44,11 @@ let
     # GUI apps (cross-platform)
     adwaita-icon-theme
     anki-bin
-    kitty
     qalculate-gtk
     unstable.spotify
     unstable.keymapp
     obsidian
+    ghostty-bin
   ];
 
   linuxPackages = with pkgs; [

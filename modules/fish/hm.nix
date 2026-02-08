@@ -29,12 +29,15 @@
       let
         HOME = "${config.home.homeDirectory}";
       in
+      # fish
       ''
         set -g fish_greeting ""
-        source ${HOME}/.config/fish/themes/gruvbox.fish
-        theme_gruvbox dark medium
 
+        fish_config theme choose "fish default"
+        set -gx fish_cursor_visual block
+        set -gx fish_color_command blue
         set -gx fish_color_autosuggestion 555
+
         set -gx fish_pager_color_selected_background --background=brblack
 
         if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish

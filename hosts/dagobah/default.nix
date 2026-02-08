@@ -22,7 +22,7 @@
     ../../modules/helix
     ../../modules/lazygit
     ../../modules/nix
-    ../../modules/kitty
+    ../../modules/ghostty
     ../../modules/nix-index
     ../../modules/nushell
     ../../modules/pueue

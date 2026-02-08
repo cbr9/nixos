@@ -34,7 +34,7 @@ with lib;
         name = "CaskaydaCove Nerd Font Mono";
         size = 12;
       };
-      themeFile = "GruvboxMaterialDarkMedium";
+      # themeFile = "GruvboxMaterialDarkMedium";
     };
 
     xdg.configFile = {

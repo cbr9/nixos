@@ -21,7 +21,6 @@
     wl-clipboard
     papers
     apple-cursor
-    kitty
     bemoji
     xwayland-satellite
   ];
