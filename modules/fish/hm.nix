@@ -11,6 +11,10 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
+    preferAbbrs = true;
+    shellAbbrs = {
+      gp = "git push";
+    };
 
     functions = {
       fish_user_key_bindings = ''
@@ -18,7 +22,7 @@
         bind \el accept-autosuggestion  # alt+l
         bind \ek up-or-search # alt+k
         bind \ej down-or-search # alt+j
-        bind \ce 'fish_commandline_prepend $EDITOR'
+        bind \ce edit_command_buffer
         bind \cw 'set old_tty (stty -g); stty sane; yy; stty $old_tty; commandline -f repaint'
       '';
     };
