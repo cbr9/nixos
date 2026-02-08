@@ -120,6 +120,7 @@
       "rectangle" # Window management
       "notion-calendar"
       "notion-mail"
+      "google-chrome"
       "notion"
     ];
   };

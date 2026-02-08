@@ -45,7 +45,6 @@ let
     adwaita-icon-theme
     anki-bin
     kitty
-    google-chrome
     qalculate-gtk
     unstable.spotify
     unstable.keymapp
@@ -64,6 +63,7 @@ let
 
   darwinPackages = with pkgs; [
     unstable.raycast
+    unstable.jetbrains-toolbox
     claude-code
     alt-tab-macos
     betterdisplay
