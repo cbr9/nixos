@@ -65,13 +65,17 @@
   system.defaults = {
     dock = {
       autohide = true;
+      autohide-delay = 0.0;
       mru-spaces = false; # Don't rearrange spaces based on recent use
       show-recents = false;
       tilesize = 48;
     };
     finder = {
       AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      FXRemoveOldTrashItems = true;
       FXPreferredViewStyle = "clmv"; # Column view
+      ShowExternalHardDrivesOnDesktop = false;
       ShowPathbar = true;
       ShowStatusBar = true;
       NewWindowTarget = "Home";
