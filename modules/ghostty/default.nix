@@ -15,6 +15,9 @@
         theme = "Gruvbox Dark";
         font-size = 17;
         font-family = "SauceCodePro NF";
+        unfocused-split-opacity = 0.45;
+        window-padding-x = 5;
+        window-padding-y = 5;
         font-thicken = true;
         shell-integration = "fish";
         keybind = [
