@@ -84,7 +84,7 @@
       AppleKeyboardUIMode = 3; # Full keyboard control
       ApplePressAndHoldEnabled = false; # Key repeat instead of accents
       InitialKeyRepeat = 10;
-      KeyRepeat = 0;
+      KeyRepeat = 1;
       AppleShowAllExtensions = true;
       NSWindowShouldDragOnGesture = true;
       NSDocumentSaveNewDocumentsToCloud = false;
