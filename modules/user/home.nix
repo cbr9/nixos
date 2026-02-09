@@ -48,7 +48,6 @@ let
     unstable.spotify
     unstable.keymapp
     obsidian
-    ghostty-bin
   ];
 
   linuxPackages = with pkgs; [

@@ -123,6 +123,7 @@
       "google-chrome"
       "firefox"
       "notion"
+      "ghostty@tip"
     ];
   };
 }
