@@ -30,10 +30,6 @@ in
         user = "cabero";
         hostname = "machine-shop-open-toadfish";
       };
-      machine-shop-enjoyed-quetzal = {
-        user = "cabero";
-        hostname = "machine-shop-enjoyed-quetzal";
-      };
       "*" = {
         forwardAgent = true;
         identityAgent = lib.mkIf (agent != "") [
