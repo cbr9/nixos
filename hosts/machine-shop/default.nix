@@ -10,7 +10,7 @@ let
   oldPkgs = import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/01b6809f7f9d1183a2b3e081f0a1e6f8f415cb09.tar.gz";
     sha256 = "sha256:00z9fndpvv993bkzkn3hnmkhxqigb5n2g0l83r5l1i2i8n6d6d0d";
-  }) { system = pkgs.system; };
+  }) { system = pkgs.stdenv.hostPlatform.system; };
 
 in
 {
