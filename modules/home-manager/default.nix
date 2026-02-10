@@ -3,7 +3,6 @@
   config,
   isLinux ? false,
   isDarwin ? false,
-  minimal ? false,
   ...
 }:
 {
@@ -16,7 +15,6 @@
       inputs
       isLinux
       isDarwin
-      minimal
       ;
     nixosConfig = if isLinux then config else null;
     darwinConfig = if isDarwin then config else null;

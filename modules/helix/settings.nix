@@ -1,6 +1,4 @@
 {
-  lib,
-  minimal ? false,
   ...
 }:
 {
@@ -46,7 +44,7 @@
       cursorline = true;
       cursorcolumn = true;
       default-line-ending = "lf";
-      rainbow-brackets = lib.mkIf (!minimal) true;
+      rainbow-brackets = true;
       end-of-line-diagnostics = "hint";
       insert-final-newline = false;
       gutters = [

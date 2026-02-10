@@ -2,7 +2,6 @@
   pkgs,
   lib,
   inputs,
-  minimal ? false,
   config,
   ...
 }:
@@ -58,6 +57,9 @@ let
 
 in
 {
+  nixpkgs.overlays = [
+    inputs.yazi.overlays.default
+  ];
   imports = [
     ./plugins
     ./settings.nix
