@@ -20,11 +20,18 @@
         font-size = 17;
         font-family = "SauceCodePro NF";
         unfocused-split-opacity = 0.55;
-        window-padding-x = 5;
-        window-padding-y = 5;
+        window-padding-x = 10;
+        window-padding-y = 10;
+        mouse-hide-while-typing = true;
         font-thicken = true;
+
+        macos-option-as-alt = true;
         shell-integration = "fish";
         keybind = [
+          "super+ctrl+arrow_down=resize_split:down,25"
+          "super+ctrl+arrow_left=resize_split:left,25"
+          "super+ctrl+arrow_right=resize_split:right,25"
+          "super+ctrl+arrow_up=resize_split:up,25"
         ];
       };
     };
