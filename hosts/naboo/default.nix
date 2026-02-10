@@ -12,6 +12,7 @@
     ../../modules/user
     ../../modules/1password
     ../../modules/atuin
+    ../../modules/bash
     ../../modules/bat
     ../../modules/bottom
     ../../modules/awscli
