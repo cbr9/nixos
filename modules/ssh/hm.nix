@@ -19,9 +19,10 @@ let
       "";
 in
 {
-  home.sessionVariables = {
-    SSH_AUTH_SOCK = if agent == "" then "/home/cabero/.ssh/ssh_auth_sock" else agent;
+  home.sessionVariables = lib.mkIf (agent != "") {
+    SSH_AUTH_SOCK = agent;
   };
+
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
