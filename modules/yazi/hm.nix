@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  includeAppOverlays ? true,
   ...
 }:
 let
@@ -68,13 +67,12 @@ in
   ];
 
   home.file.".config/yazi/vfs.toml" = {
-    enable = includeAppOverlays;
     text = vfsContent;
   };
 
   programs.yazi = {
     enable = true;
     initLua = ./init.lua;
-    keymap.mgr.prepend_keymap = lib.mkIf includeAppOverlays dynamicKeymaps;
+    keymap.mgr.prepend_keymap = dynamicKeymaps;
   };
 }

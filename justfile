@@ -1,7 +1,7 @@
 default:
 	#!/usr/bin/env bash
 	if [[ "$(hostname)" == machine-shop* ]]; then
-		home-manager switch --flake ".#machine-shop-full"
+		home-manager switch --flake ".#machine-shop"
 	elif [[ "$(uname)" == "Darwin" ]]; then
 		sudo darwin-rebuild switch --flake .
 	else
@@ -11,7 +11,7 @@ default:
 switch:
 	#!/usr/bin/env bash
 	if [[ "$(hostname)" == machine-shop* ]]; then
-		home-manager switch --flake ".#machine-shop-full"
+		home-manager switch --flake ".#machine-shop"
 	elif [[ "$(uname)" == "Darwin" ]]; then
 		sudo darwin-rebuild switch --flake .
 	else
@@ -22,7 +22,7 @@ update:
 	#!/usr/bin/env bash
 	nix flake update
 	if [[ "$(hostname)" == machine-shop* ]]; then
-		home-manager switch --flake ".#machine-shop-full"
+		home-manager switch --flake ".#machine-shop"
 	elif [[ "$(uname)" == "Darwin" ]]; then
 		sudo darwin-rebuild switch --flake .
 	else

@@ -1,8 +1,6 @@
 {
   inputs,
   system,
-  extraOverlays ? [ ],
-  includeAppOverlays ? true,
 }:
 let
   appOverlays = [
@@ -24,6 +22,5 @@ import inputs.nixpkgs {
       };
     })
   ]
-  ++ (if includeAppOverlays then appOverlays else [ ])
-  ++ extraOverlays;
+  ++ appOverlays;
 }
