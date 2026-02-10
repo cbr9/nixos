@@ -36,6 +36,7 @@
             inherit inputs system lib;
             isLinux = true;
             isDarwin = false;
+            minimal = false;
           };
           modules = [
             inputs.home-manager.nixosModules.home-manager
@@ -110,6 +111,7 @@
             inherit inputs system lib;
             isLinux = false;
             isDarwin = true;
+            minimal = false;
           };
           modules = [
             inputs.home-manager.darwinModules.home-manager
@@ -145,20 +147,14 @@
       homeConfigurations = {
         machine-shop-full = mkHomeManagerHost {
           system = "x86_64-linux";
-          extraOverlays = [
-            inputs.helix.overlays.default
-            inputs.yazi.overlays.default
-          ];
+          hostname = "machine-shop";
           extraSpecialArgs = {
             minimal = false;
           };
         };
         machine-shop-minimal = mkHomeManagerHost {
           system = "x86_64-linux";
-          extraOverlays = [
-            inputs.helix.overlays.default
-            inputs.yazi.overlays.default
-          ];
+          hostname = "machine-shop";
           extraSpecialArgs = {
             minimal = true;
           };

@@ -3,6 +3,7 @@
   config,
   isLinux ? false,
   isDarwin ? false,
+  minimal ? false,
   ...
 }:
 {
@@ -11,7 +12,12 @@
   home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = {
     flakePath = config.flakePath;
-    inherit inputs isLinux isDarwin;
+    inherit
+      inputs
+      isLinux
+      isDarwin
+      minimal
+      ;
     nixosConfig = if isLinux then config else null;
     darwinConfig = if isDarwin then config else null;
   };

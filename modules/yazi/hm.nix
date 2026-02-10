@@ -2,7 +2,7 @@
   pkgs,
   lib,
   inputs,
-  minimal,
+  minimal ? false,
   config,
   ...
 }:
@@ -11,7 +11,8 @@ let
 
   # Check if the "*" block actually contains identityAgent
   wildcardBlock = sshMatchBlocks."*".data or { };
-  identityAgent = builtins.elemAt wildcardBlock.identityAgent 0;
+  identityAgent =
+    if wildcardBlock.identityAgent == [ ] then null else builtins.elemAt wildcardBlock.identityAgent 0;
 
   # Filter out wildcard hosts (containing * or ?)
   isWildcard = name: lib.hasInfix "*" name || lib.hasInfix "?" name;
@@ -57,9 +58,6 @@ let
 
 in
 {
-  nixpkgs.overlays = lib.mkIf (!minimal) [
-    inputs.yazi.overlays.default
-  ];
   imports = [
     ./plugins
     ./settings.nix

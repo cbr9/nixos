@@ -2,14 +2,10 @@
   config,
   pkgs,
   inputs,
-  lib,
-  minimal,
+  minimal ? false,
   ...
 }:
 {
-  nixpkgs.overlays = lib.mkIf (!minimal) [
-    inputs.helix.overlays.default
-  ];
 
   home.sessionVariables = rec {
     VISUAL = "${config.programs.helix.package}/bin/hx";

@@ -1,4 +1,8 @@
-{ lib, minimal, ... }:
+{
+  lib,
+  minimal ? false,
+  ...
+}:
 {
   # stylix.targets.helix.enable = false;
   programs.helix.settings = {
