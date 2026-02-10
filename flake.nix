@@ -178,6 +178,7 @@
               nixd
               git-lfs
               git
+              home-manager
               nix-prefetch-github
               just
             ];
