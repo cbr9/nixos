@@ -6,7 +6,7 @@
 {
   home-manager.users.cabero = {
     home.sessionVariables = {
-      TERMINAL = "${pkgs.ghostty}/bin/ghostty";
+      TERMINAL = "ghostty";
     };
     programs.ghostty = {
       enable = true;
