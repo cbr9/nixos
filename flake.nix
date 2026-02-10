@@ -64,6 +64,7 @@
           hostname,
           extraOverlays ? [ ],
           extraModules ? [ ],
+          extraSpecialArgs ? { },
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit lib;
@@ -87,7 +88,8 @@
             flakePath = "/home/cabero/Code/nixos";
             nixosConfig = null;
             darwinConfig = null;
-          };
+          }
+          // extraSpecialArgs;
           modules = [
             inputs.nix-index-database.homeModules.nix-index
             ./hosts/${hostname}
@@ -141,13 +143,25 @@
       };
 
       homeConfigurations = {
-        machine-shop-open-toadfish = mkHomeManagerHost {
+        machine-shop-full = mkHomeManagerHost {
           system = "x86_64-linux";
-          hostname = "machine-shop";
           extraOverlays = [
             inputs.helix.overlays.default
             inputs.yazi.overlays.default
           ];
+          extraSpecialArgs = {
+            minimal = false;
+          };
+        };
+        machine-shop-minimal = mkHomeManagerHost {
+          system = "x86_64-linux";
+          extraOverlays = [
+            inputs.helix.overlays.default
+            inputs.yazi.overlays.default
+          ];
+          extraSpecialArgs = {
+            minimal = true;
+          };
         };
       };
 

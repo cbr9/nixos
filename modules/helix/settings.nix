@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, minimal, ... }:
 {
   # stylix.targets.helix.enable = false;
   programs.helix.settings = {
@@ -42,7 +42,7 @@
       cursorline = true;
       cursorcolumn = true;
       default-line-ending = "lf";
-      rainbow-brackets = true;
+      rainbow-brackets = lib.mkIf (!minimal) true;
       end-of-line-diagnostics = "hint";
       insert-final-newline = false;
       gutters = [
