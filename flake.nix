@@ -65,24 +65,15 @@
           extraOverlays ? [ ],
           extraModules ? [ ],
           extraSpecialArgs ? { },
+          includeAppOverlays ? true,
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit lib;
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              (final: prev: {
-                unstable = import inputs.nixpkgs-unstable {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
-              })
-            ]
-            ++ extraOverlays;
+          pkgs = import ./modules/nix/mkPkgs.nix {
+            inherit inputs system extraOverlays includeAppOverlays;
           };
           extraSpecialArgs = {
-            inherit inputs system;
+            inherit inputs system includeAppOverlays;
             isLinux = lib.isLinux system;
             isDarwin = lib.isDarwin system;
             flakePath = "/home/cabero/Code/nixos";
@@ -146,8 +137,11 @@
         machine-shop-full = mkHomeManagerHost {
           system = "x86_64-linux";
           hostname = "machine-shop";
-          extraSpecialArgs = {
-          };
+        };
+        machine-shop-minimal = mkHomeManagerHost {
+          system = "x86_64-linux";
+          hostname = "machine-shop";
+          includeAppOverlays = false;
         };
       };
 

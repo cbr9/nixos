@@ -1,8 +1,8 @@
 {
   pkgs,
   lib,
-  inputs,
   config,
+  includeAppOverlays ? true,
   ...
 }:
 let
@@ -57,9 +57,6 @@ let
 
 in
 {
-  nixpkgs.overlays = [
-    inputs.yazi.overlays.default
-  ];
   imports = [
     ./plugins
     ./settings.nix
@@ -70,11 +67,14 @@ in
     exiftool
   ];
 
-  home.file.".config/yazi/vfs.toml".text = vfsContent;
+  home.file.".config/yazi/vfs.toml" = {
+    enable = includeAppOverlays;
+    text = vfsContent;
+  };
 
   programs.yazi = {
     enable = true;
     initLua = ./init.lua;
-    keymap.mgr.prepend_keymap = dynamicKeymaps;
+    keymap.mgr.prepend_keymap = lib.mkIf includeAppOverlays dynamicKeymaps;
   };
 }

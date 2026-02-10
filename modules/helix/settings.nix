@@ -1,4 +1,6 @@
 {
+  lib,
+  includeAppOverlays ? true,
   ...
 }:
 {
@@ -44,7 +46,7 @@
       cursorline = true;
       cursorcolumn = true;
       default-line-ending = "lf";
-      rainbow-brackets = true;
+      rainbow-brackets = lib.mkIf includeAppOverlays true;
       end-of-line-diagnostics = "hint";
       insert-final-newline = false;
       gutters = [

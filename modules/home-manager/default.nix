@@ -11,6 +11,7 @@
   home-manager.backupFileExtension = "backup";
   home-manager.extraSpecialArgs = {
     flakePath = config.flakePath;
+    includeAppOverlays = true;
     inherit
       inputs
       isLinux
