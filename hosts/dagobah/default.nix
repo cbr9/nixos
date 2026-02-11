@@ -12,7 +12,6 @@
     ../../modules/1password
     ../../modules/atuin
     ../../modules/awscli
-    ../../modules/bash
     ../../modules/bat
     ../../modules/bottom
     ../../modules/direnv

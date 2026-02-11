@@ -17,7 +17,6 @@ in
   imports = [
     ../../modules/atuin/hm.nix
     ../../modules/awscli/hm.nix
-    ../../modules/bash/hm.nix
     ../../modules/bat/hm.nix
     ../../modules/bottom/hm.nix
     ../../modules/direnv/hm.nix
