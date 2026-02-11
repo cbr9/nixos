@@ -15,11 +15,6 @@ let
       sha256 = "sha256:00z9fndpvv993bkzkn3hnmkhxqigb5n2g0l83r5l1i2i8n6d6d0d";
     }) { system = pkgs.stdenv.hostPlatform.system; }).uv;
 
-  oldNode = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/e1ee359d16a1886f0771cc433a00827da98d861c.tar.gz";
-    sha256 = "sha256-Qy2e5VZRoLZ61ee7XmuaUOUgprW3AyE0uLyfohTPxMM=";
-  }) { system = pkgs.stdenv.hostPlatform.system; };
-
   commonPackages = with pkgs; [
     # CLI tools
     sops
@@ -27,6 +22,7 @@ let
     glow
     devenv
     nixfmt-rfc-style
+    cmake
     just
     dust
     ffmpeg
@@ -62,13 +58,12 @@ let
 
   darwinPackages = with pkgs; [
     unstable.raycast
+    android-tools
     unstable.jetbrains-toolbox
     claude-code
     alt-tab-macos
     betterdisplay
     oldUv
-    oldNode.nodejs_18
-    oldNode.yarn
   ];
 in
 {
