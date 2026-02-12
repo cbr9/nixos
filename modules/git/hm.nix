@@ -1,6 +1,8 @@
 {
   pkgs,
   isDarwin,
+  nixosConfig ? null,
+  darwinConfig ? null,
   ...
 }:
 {
@@ -51,7 +53,7 @@
         merge.tool = "meld";
       }
       // (
-        if isDarwin then
+        if (isDarwin || (darwinConfig == null && nixosConfig == null)) then
           {
             signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5Lnn2Qmi99Ynt89qRJIrmRfNBAwvVwBaBfkaSftzNB";
             name = "Andres Cabero Busto";
