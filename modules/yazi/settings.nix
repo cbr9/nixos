@@ -3,6 +3,7 @@
   lib,
   isLinux ? false,
   isDarwin ? false,
+  nixosConfig ? null,
   ...
 }:
 {
@@ -30,7 +31,7 @@
         }
       ];
     }
-    // lib.optionalAttrs isLinux {
+    // lib.optionalAttrs (isLinux && nixosConfig != null) {
       play = [
         {
           run = "${pkgs.vlc}/bin/vlc $@";
