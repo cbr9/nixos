@@ -108,6 +108,42 @@
     ]
     ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
 
+  home-manager.users.cabero =
+    let
+
+    in
+    {
+      programs.aerospace = {
+        enable = true;
+        userSettings = {
+          gaps = {
+            outer.left = 5;
+            outer.bottom = 5;
+            outer.top = 5;
+            outer.right = 5;
+            inner = {
+              horizontal = 5;
+              vertical = 5;
+            };
+          };
+          default-root-container-layout = "tiles";
+          default-root-container-orientation = "auto";
+          on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
+          start-at-login = true;
+
+          mode.main.binding = {
+            alt-h = "focus left";
+            alt-j = "focus down";
+            alt-k = "focus up";
+            alt-l = "focus right";
+            alt-minus = "resize smart -50";
+            alt-equal = "resize smart +50";
+          };
+        };
+      };
+
+    };
+
   # Homebrew integration (for GUI apps not in nixpkgs or casks)
   homebrew = {
     enable = true;
