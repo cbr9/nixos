@@ -48,6 +48,7 @@
       rainbow-brackets = true;
       end-of-line-diagnostics = "hint";
       insert-final-newline = false;
+      kitty-keyboard-protocol = "enabled";
       gutters = [
         "diff"
         "line-numbers"
