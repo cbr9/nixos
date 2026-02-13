@@ -24,6 +24,11 @@
         window-padding-y = 10;
         mouse-hide-while-typing = true;
         font-thicken = true;
+        window-decoration = "none";
+        cursor-style = "block";
+        cursor-style-blink = false;
+        cursor-click-to-move = true;
+        shell-integration-features = "no-cursor";
 
         macos-option-as-alt = true;
         shell-integration = "fish";
