@@ -3,7 +3,7 @@
   programs.zoxide = {
     enable = true;
     options = [
-      "--hook pwd"
+      "--hook prompt"
     ];
   };
 }

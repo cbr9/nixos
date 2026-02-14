@@ -16,6 +16,7 @@
 
   programs.ruff = {
     enable = true;
+    package = pkgs.unstable.ruff;
     settings = {
       line-length = 120;
     };
@@ -35,7 +36,6 @@
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
       typescript-language-server
-      unstable.ruff
       unstable.ty
       shellcheck
       taplo

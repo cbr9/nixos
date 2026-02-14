@@ -52,6 +52,7 @@ in
         dust
         ffmpeg
         sox
+        mosh
         unstable.typst
         watchexec
         dysk

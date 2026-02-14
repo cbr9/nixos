@@ -23,6 +23,7 @@ let
     devenv
     nixfmt-rfc-style
     cmake
+    mosh
     just
     dust
     ffmpeg
