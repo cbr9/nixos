@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home-manager.users.cabero = {
     programs.vicinae = {
       enable = true;
-      package = pkgs.unstable.vicinae;
       settings = {
         faviconService = "twenty";
         font = {
@@ -14,7 +13,7 @@
           searchFiles = false;
         };
         theme = {
-          name = "vicinae-dark";
+          name = "Gruvbox Dark";
         };
         window = {
           csd = true;
@@ -25,11 +24,12 @@
       systemd = {
         enable = true;
       };
-      # extensions = [
-      #   (config.lib.vicinae.mkExtension {
-
-      #   })
-      # ];
+      extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
+        bluetooth
+        nix
+        niri
+        wifi-commander
+      ];
     };
 
   };

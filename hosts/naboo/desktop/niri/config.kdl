@@ -13,8 +13,8 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            layout "us,es"
-            options "grp:win_space_toggle"
+            layout "us"
+            // options "grp:win_space_toggle"
         }
 
         repeat-delay 150
@@ -381,7 +381,7 @@ binds {
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Ctrl+Shift+Space hotkey-overlay-title="1Password Quick Access" { spawn "1password" "--ozone-platform=wayland" "--quick-access"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Application Runner" { spawn "vicinae" "open"; }
+    Mod+Space hotkey-overlay-title="Application Runner" { spawn "vicinae" "open"; }
     Super+Alt+L hotkey-overlay-title="Screen Lock" allow-inhibiting=false { spawn "swaylock" "-f"; }
     Mod+B hotkey-overlay-title="Clipboard Manager" { spawn "vicinae" "deeplink" "vicinae://extensions/vicinae/clipboard/history"; }
 

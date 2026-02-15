@@ -1,4 +1,5 @@
 {
+  lib,
   inputs,
   config,
   isLinux ? false,
