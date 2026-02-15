@@ -17,8 +17,8 @@ input {
             options "grp:win_space_toggle"
         }
 
-        repeat-delay 500
-        repeat-rate 30
+        repeat-delay 150
+        repeat-rate 100
         track-layout "window"
     }
 
