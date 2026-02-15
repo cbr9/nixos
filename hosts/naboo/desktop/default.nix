@@ -1,12 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./clipboard
-    ./emoji
     ./niri
     ./swayidle
     ./waybar
-    ./fuzzel
+    ./vicinae
     ./wlogout
     ./swaylock
     ./wpaperd
@@ -21,15 +19,11 @@
     wl-clipboard
     papers
     apple-cursor
-    bemoji
     xwayland-satellite
   ];
 
   home-manager.users.cabero = {
     services.dunst = {
-      enable = true;
-    };
-    services.cliphist = {
       enable = true;
     };
     dconf.settings = {

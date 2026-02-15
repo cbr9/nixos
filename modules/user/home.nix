@@ -54,6 +54,7 @@ let
     loupe
     playerctl
     vlc
+    google-chrome
     webtorrent_desktop
     snapshot
   ];

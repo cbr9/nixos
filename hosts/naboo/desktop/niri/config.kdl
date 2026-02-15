@@ -40,10 +40,10 @@ input {
 
     mouse {
         // off
-        // natural-scroll
-        // accel-speed 0.8
+        natural-scroll
+        accel-speed 0.8
         accel-profile "flat"
-        // scroll-method "no-scroll"
+        scroll-method "no-scroll"
     }
 
     trackpoint {
@@ -377,13 +377,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+E hotkey-overlay-title="Emoji Picker" { spawn "bemoji" "--noline"; }
+    Mod+E hotkey-overlay-title="Emoji Picker" { spawn "vicinae" "deeplink" "vicinae://extensions/vicinae/vicinae/search-emojis"; }
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Ctrl+Shift+Space hotkey-overlay-title="1Password Quick Access" { spawn "1password" "--ozone-platform=wayland" "--quick-access"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Application Runner" { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Application Runner" { spawn "vicinae" "open"; }
     Super+Alt+L hotkey-overlay-title="Screen Lock" allow-inhibiting=false { spawn "swaylock" "-f"; }
-    Mod+B hotkey-overlay-title="Clipboard Manager" { spawn "select-from-clipboard"; }
+    Mod+B hotkey-overlay-title="Clipboard Manager" { spawn "vicinae" "deeplink" "vicinae://extensions/vicinae/clipboard/history"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

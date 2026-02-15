@@ -17,7 +17,7 @@
 
       settings = rec {
         theme = "Gruvbox Dark";
-        font-size = 17;
+        font-size = 15;
         font-family = "SauceCodePro NF";
         unfocused-split-opacity = 0.55;
         window-padding-x = 10;
