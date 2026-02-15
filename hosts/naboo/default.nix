@@ -40,6 +40,10 @@
     enable = true;
   };
 
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  # needed for VLC chromecasting
+  networking.firewall.allowedTCPPorts = [ 8010 ];
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "i2c-dev" ];
   system.stateVersion = "25.11";
