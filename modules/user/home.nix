@@ -20,6 +20,7 @@ let
     sops
     gemini-cli
     glow
+    zotero
     devenv
     nixfmt-rfc-style
     cmake
