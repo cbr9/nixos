@@ -83,8 +83,8 @@ in
       {
         name = "python";
         language-servers = [
-          "pyrefly"
-          # "ty"
+          # "pyrefly"
+          "ty"
           "ruff"
         ];
         auto-format = true;
