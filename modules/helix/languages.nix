@@ -20,10 +20,9 @@ in
   # keep this for the future
   programs.helix.languages = {
     language-server = {
-      pyright = {
-        command = "pyright-langserver";
-        args = [ "--stdio" ];
-        config = { }; # <- this is the important line
+      pyrefly = {
+        command = "pyrefly";
+        args = [ "lsp" ];
       };
       nixd = {
         command = "nixd";
@@ -80,6 +79,15 @@ in
         scope = "source.nix";
         auto-format = true;
         # formatter = formatter.nixfmt;
+      }
+      {
+        name = "python";
+        language-servers = [
+          "pyrefly"
+          # "ty"
+          "ruff"
+        ];
+        auto-format = true;
       }
     ];
   };

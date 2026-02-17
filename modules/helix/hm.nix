@@ -38,6 +38,7 @@
       typescript-language-server
       unstable.ty
       shellcheck
+      unstable.pyrefly
       taplo
       rust-analyzer
       lldb
