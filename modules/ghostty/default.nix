@@ -24,7 +24,7 @@
         window-padding-y = 10;
         mouse-hide-while-typing = true;
         font-thicken = true;
-        window-decoration = "none";
+        window-decoration = "auto";
         cursor-style = "block";
         cursor-style-blink = false;
         cursor-click-to-move = true;
