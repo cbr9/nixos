@@ -31,6 +31,10 @@ in
         user = "cabero";
         hostname = "machine-shop-open-toadfish";
       };
+      naboo = {
+        user = "cabero";
+        hostname = "naboo";
+      };
       "*" = {
         forwardAgent = true;
         identityAgent = lib.mkIf (agent != "") [
