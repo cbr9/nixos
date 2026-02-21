@@ -15,6 +15,7 @@
           modules-left = [
             "network"
             "niri/language"
+            "idle_inhibitor"
             "privacy"
             "pulseaudio"
             "wlr/taskbar"
@@ -28,6 +29,15 @@
             "memory"
             "temperature"
           ];
+
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = "";
+              deactivated = "";
+            };
+            timeout = 60 * 2;
+          };
 
           privacy = {
             icon-size = 16;

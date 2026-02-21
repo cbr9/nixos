@@ -31,7 +31,7 @@ input {
         // dwtp
         // drag false
         // drag-lock
-        natural-scroll
+        // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -40,7 +40,7 @@ input {
 
     mouse {
         // off
-        natural-scroll
+        // natural-scroll
         accel-speed 0.8
         accel-profile "flat"
         scroll-method "no-scroll"
@@ -377,6 +377,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
+    Mod+N hotkey-overlay-title="Notification Panel" { spawn "swaync-client" "-t"; }
     Mod+E hotkey-overlay-title="Emoji Picker" { spawn "vicinae" "deeplink" "vicinae://extensions/vicinae/vicinae/search-emojis"; }
     Mod+P hotkey-overlay-title="1Password" { spawn "1password" "--ozone-platform=wayland"; }
     Ctrl+Shift+Space hotkey-overlay-title="1Password Quick Access" { spawn "1password" "--ozone-platform=wayland" "--quick-access"; }

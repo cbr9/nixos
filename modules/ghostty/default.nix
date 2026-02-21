@@ -10,6 +10,7 @@
     };
     programs.ghostty = {
       enable = true;
+      systemd.enable = true;
       enableFishIntegration = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
@@ -20,6 +21,7 @@
         font-size = 15;
         font-family = "SauceCodePro NF";
         unfocused-split-opacity = 0.55;
+        quit-after-last-window-closed = false;
         window-padding-x = 10;
         window-padding-y = 10;
         mouse-hide-while-typing = true;
