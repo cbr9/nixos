@@ -1,6 +1,8 @@
 {
   pkgs,
   isDarwin ? false,
+  isLinux ? false,
+  nixosConfig ? null,
   ...
 }:
 {
@@ -10,7 +12,7 @@
     };
     programs.ghostty = {
       enable = true;
-      systemd.enable = true;
+      systemd.enable = isLinux && nixosConfig != null;
       enableFishIntegration = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
