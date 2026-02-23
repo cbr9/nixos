@@ -158,6 +158,7 @@
               home-manager
               nix-prefetch-github
               just
+              just-lsp
             ];
           };
         }
