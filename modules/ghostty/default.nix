@@ -1,8 +1,7 @@
 {
   pkgs,
   isDarwin ? false,
-  isLinux ? false,
-  nixosConfig ? null,
+  isNixos ? false,
   ...
 }:
 {
@@ -12,11 +11,11 @@
     };
     programs.ghostty = {
       enable = true;
-      systemd.enable = isLinux && nixosConfig != null;
+      systemd.enable = isNixos;
       enableFishIntegration = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
-      package = if isDarwin then null else pkgs.ghostty;
+      package = if isDarwin then null else pkgs.ghostty; # on darwin I use ghostty@tip from homebrew
 
       settings = rec {
         theme = "Gruvbox Dark";

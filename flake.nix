@@ -39,6 +39,7 @@
           specialArgs = {
             inherit inputs system lib;
             isLinux = true;
+            isNixos = true;
             isDarwin = false;
           };
           modules = [
@@ -77,6 +78,7 @@
           extraSpecialArgs = {
             inherit inputs system;
             isLinux = lib.isLinux system;
+            isNixos = false;
             isDarwin = lib.isDarwin system;
             flakePath = "/home/cabero/Code/nixos";
             nixosConfig = null;
@@ -102,6 +104,7 @@
           specialArgs = {
             inherit inputs system lib;
             isLinux = false;
+            isNixos = false;
             isDarwin = true;
           };
           modules = [
