@@ -11,6 +11,7 @@
     ./xdg.nix
     ../../modules/user
     ../../modules/1password
+    ../../modules/ddcutil
     ../../modules/atuin
     ../../modules/bat
     ../../modules/bottom
@@ -64,11 +65,13 @@
     enableOnBoot = true;
     storageDriver = "btrfs";
   };
+  services.ddccontrol.enable = true;
 
   networking.hostName = "naboo";
   environment.systemPackages = with pkgs; [
     killall
     simple-scan
+    ddcutil
     git
     wget
     openssl

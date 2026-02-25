@@ -57,6 +57,14 @@
         '';
 
     };
+    services.wlsunset = {
+      enable = true;
+      sunrise = "6:00";
+      sunset = "18:00";
+      temperature = {
+        night = 3500;
+      };
+    };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
