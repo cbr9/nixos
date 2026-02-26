@@ -39,7 +39,7 @@
       unstable.ty
       shellcheck
       unstable.pyrefly
-      taplo
+      tombi
       rust-analyzer
       lldb
       tinymist

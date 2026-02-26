@@ -63,6 +63,7 @@ let
     unstable.raycast
     android-tools
     unstable.jetbrains-toolbox
+    ruby_4_0
     claude-code
     alt-tab-macos
     betterdisplay
