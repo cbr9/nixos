@@ -53,7 +53,6 @@ in
         ffmpeg
         sox
         mosh
-        unstable.typst
         watchexec
         dysk
         dua
