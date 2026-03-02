@@ -52,9 +52,6 @@
 
   networking.hostName = "dagobah"; # Set your hostname
 
-  # Used for system-wide environment variables (you might want to populate this)
-  environment.systemPath = [ ];
-
   # Set the Nixpkgs channel to use
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -108,6 +105,10 @@
       nerd-fonts.fira-code
     ]
     ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
+
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+  ];
 
   # Homebrew integration (for GUI apps not in nixpkgs or casks)
   homebrew = {

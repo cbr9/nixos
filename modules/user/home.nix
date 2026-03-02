@@ -27,7 +27,6 @@ let
     mosh
     just
     dust
-    ffmpeg
     sox
     unstable.typst
     watchexec
@@ -50,6 +49,7 @@ let
 
   linuxPackages = with pkgs; [
     appimage-run
+    ffmpeg
     gparted
     loupe
     playerctl
@@ -59,19 +59,28 @@ let
     snapshot
   ];
 
-  darwinPackages = with pkgs; [
-    unstable.raycast
-    android-tools
-    unstable.jetbrains-toolbox
-    ruby_4_0
-    claude-code
-    alt-tab-macos
-    betterdisplay
-    oldUv
-  ];
+  darwinPackages =
+    with pkgs;
+    [
+      raycast
+      slack
+      android-tools
+      jetbrains-toolbox
+      ruby_4_0
+      unstable.claude-code
+      alt-tab-macos
+      betterdisplay
+    ]
+    ++ [ oldUv ];
 in
 {
   home-manager.users.cabero = {
+    services.syncthing = {
+      enable = true;
+      settings = {
+
+      };
+    };
     gtk = lib.mkIf isLinux {
       enable = true;
       iconTheme = {
