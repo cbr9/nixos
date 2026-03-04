@@ -4,6 +4,7 @@
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
+  hardware.raspberry-pi."4".fkms-3d.enable = true;
   hardware.graphics.enable = true;
 
   # SD card root filesystem
