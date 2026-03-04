@@ -18,7 +18,7 @@ let
   commonPackages = with pkgs; [
     # CLI tools
     sops
-    gemini-cli
+    unstable.gemini-cli
     glow
     zotero
     devenv
