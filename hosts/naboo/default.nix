@@ -41,6 +41,15 @@
     enable = true;
   };
 
+  programs.localsend = {
+    enable = true;
+  };
+  services.paperless = {
+    enable = true;
+  };
+  services.ollama = {
+    enable = true;
+  };
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
   # needed for VLC chromecasting
   networking.firewall.allowedTCPPorts = [ 8010 ];

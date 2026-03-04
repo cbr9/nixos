@@ -15,6 +15,7 @@ rec {
     ];
   };
 
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
   systemd.services.taildrop =
     let
       taildropDir = "/data/cabero/Downloads/Taildrop";
