@@ -23,17 +23,21 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/bat
+    ../../modules/atuin
+    ../../modules/bottom
     ../../modules/direnv
     ../../modules/fish
     ../../modules/fzf
     ../../modules/git
     ../../modules/helix
+    ../../modules/lazygit
     ../../modules/nix/nix.nix
+    ../../modules/pueue
     ../../modules/nix-index
-    ../../modules/tailscale
     ../../modules/ssh
     ../../modules/starship
+    ../../modules/tailscale
+    ../../modules/yazi
     ../../modules/zoxide
     ../naboo/desktop/swayidle
     ../naboo/desktop/swaylock
