@@ -31,7 +31,6 @@
     ../../modules/helix
     ../../modules/nix/nix.nix
     ../../modules/nix-index
-    ../../modules/ghostty
     ../../modules/tailscale
     ../../modules/ssh
     ../../modules/starship
@@ -114,7 +113,9 @@
       gtk.enable = true;
       size = 24;
     };
+    home.sessionVariables.TERMINAL = "alacritty";
     programs.home-manager.enable = true;
+    programs.alacritty.enable = true;
     services.syncthing = {
       enable = true;
       settings = {
