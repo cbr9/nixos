@@ -3,9 +3,20 @@
   programs.lazygit = {
     enable = true;
     settings = {
+      gui = {
+        sideColWidthPrec = 0.45;
+        scrollPastBottom = true;
+        scrollOffMargin = 5;
+      };
       git = {
         overrideGpg = true;
-        autoFetch = false;
+        autoFetch = true;
+        pages = [
+          {
+            colorArg = "always";
+            pager = "delta --dark --paging=never";
+          }
+        ];
       };
     };
   };
