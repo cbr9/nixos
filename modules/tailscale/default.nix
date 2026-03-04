@@ -25,6 +25,7 @@ in
       package = pkgs.unstable.tailscale;
       extraSetFlags = [
         "--operator=cabero"
+        "--ssh"
       ];
     };
 
