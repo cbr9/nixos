@@ -42,6 +42,10 @@
     ../naboo/desktop/wpaperd
   ];
 
+  services.paperless = {
+    enable = true;
+  };
+
   # Boot
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
@@ -111,6 +115,11 @@
       size = 24;
     };
     programs.home-manager.enable = true;
+    services.syncthing = {
+      enable = true;
+      settings = {
+      };
+    };
   };
 
   # Taildrop
