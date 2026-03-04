@@ -28,6 +28,7 @@
     ../../modules/nix/nix.nix
     ../../modules/nix-index
     ../../modules/ghostty
+    ../../modules/tailscale
     ../../modules/ssh
     ../../modules/starship
     ../../modules/zoxide
