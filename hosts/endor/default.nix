@@ -1,4 +1,9 @@
-{ pkgs, inputs, system, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 {
   flakePath = "/home/cabero/Code/nixos";
 
@@ -18,7 +23,6 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/user
     ../../modules/bat
     ../../modules/direnv
     ../../modules/fish
@@ -82,8 +86,37 @@
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # User
+  users.mutableUsers = true;
+  users.users.cabero = {
+    createHome = true;
+    isNormalUser = true;
+    extraGroups = [
+      "input"
+      "wheel"
+      "networkmanager"
+    ];
+    shell = pkgs.fish;
+  };
+
   home-manager.users.cabero = {
+    home.username = "cabero";
+    home.homeDirectory = "/home/cabero";
+    home.stateVersion = "25.11";
     home.file.".config/niri/config.kdl".source = ../naboo/desktop/niri/config.kdl;
+    home.pointerCursor = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      gtk.enable = true;
+      size = 24;
+    };
+    programs.home-manager.enable = true;
+  };
+
+  # Taildrop
+  services.taildrop = {
+    enable = true;
+    directory = "/home/cabero/Downloads/Taildrop";
   };
 
   environment.systemPackages = with pkgs; [
