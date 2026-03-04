@@ -15,6 +15,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -128,6 +129,10 @@
         naboo = mkNixOSHost {
           system = "x86_64-linux";
           hostname = "naboo";
+        };
+        endor = mkNixOSHost {
+          system = "aarch64-linux";
+          hostname = "endor";
         };
       };
 
