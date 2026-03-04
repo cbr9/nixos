@@ -25,6 +25,7 @@ let
     nixfmt-rfc-style
     cmake
     mosh
+    vscode
     just
     dust
     sox
