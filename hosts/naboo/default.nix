@@ -50,6 +50,7 @@
   services.ollama = {
     enable = true;
   };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
   # needed for VLC chromecasting
   networking.firewall.allowedTCPPorts = [ 8010 ];
