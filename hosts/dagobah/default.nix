@@ -125,6 +125,7 @@
       "google-chrome"
       "firefox"
       "notion"
+      "vlc"
       "ghostty@tip"
     ];
   };
