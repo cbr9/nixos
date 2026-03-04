@@ -27,9 +27,14 @@
     ../../modules/helix
     ../../modules/nix/nix.nix
     ../../modules/nix-index
+    ../../modules/ghostty
     ../../modules/ssh
     ../../modules/starship
     ../../modules/zoxide
+    ../naboo/desktop/swayidle
+    ../naboo/desktop/swaylock
+    ../naboo/desktop/wlogout
+    ../naboo/desktop/wpaperd
   ];
 
   # Boot
