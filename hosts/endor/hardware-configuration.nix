@@ -4,6 +4,8 @@
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
+  hardware.graphics.enable = true;
+
   # SD card root filesystem
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
