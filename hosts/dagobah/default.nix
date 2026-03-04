@@ -85,7 +85,7 @@
       AppleShowAllExtensions = true;
       NSWindowShouldDragOnGesture = true;
       NSDocumentSaveNewDocumentsToCloud = false;
-      "com.apple.swipescrolldirection" = true;
+      "com.apple.swipescrolldirection" = false;
     };
     screencapture = {
       location = "${config.home-manager.users.cabero.home.homeDirectory}/Pictures/Screenshots";
