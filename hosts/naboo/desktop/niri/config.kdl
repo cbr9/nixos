@@ -75,7 +75,6 @@ output "HDMI-A-1" {
     scale 1.25
     transform "normal"
     position x=0 y=0
-    variable-refresh-rate on-demand=true
 }
 
 hotkey-overlay {
@@ -110,6 +109,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -119,7 +119,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.75; }
+    default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
