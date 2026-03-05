@@ -79,6 +79,8 @@ in
     services.syncthing = {
       enable = true;
       package = pkgs.unstable.syncthing;
+      overrideDevices = false;
+      overrideFolders = false;
       guiAddress = "0.0.0.0:8384";
       settings = {
       };
