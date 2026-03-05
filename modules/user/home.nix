@@ -78,6 +78,7 @@ in
   home-manager.users.cabero = {
     services.syncthing = {
       enable = true;
+      package = pkgs.unstable.syncthing;
       settings = {
 
       };
