@@ -64,7 +64,7 @@
     enable = true;
     settings = {
       PermitRootLogin = "no";
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
     };
   };
   networking.firewall.allowedTCPPorts = [ 22 ];
