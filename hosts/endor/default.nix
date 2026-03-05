@@ -54,6 +54,7 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   # SSH
   services.openssh = {
