@@ -44,9 +44,6 @@
   programs.localsend = {
     enable = true;
   };
-  services.paperless = {
-    enable = true;
-  };
   services.ollama = {
     enable = true;
   };
