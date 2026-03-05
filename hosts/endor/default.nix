@@ -80,6 +80,7 @@
   users.mutableUsers = true;
   users.users.cabero = {
     createHome = true;
+    linger = true; # without this services defined by HM won't work
     isNormalUser = true;
     extraGroups = [
       "input"
