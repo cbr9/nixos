@@ -79,8 +79,8 @@ in
     services.syncthing = {
       enable = true;
       package = pkgs.unstable.syncthing;
+      guiAddress = "0.0.0.0:8384";
       settings = {
-
       };
     };
     gtk = lib.mkIf isLinux {
