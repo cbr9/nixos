@@ -39,10 +39,6 @@
     ../../modules/tailscale
     ../../modules/yazi
     ../../modules/zoxide
-    ../naboo/desktop/swayidle
-    ../naboo/desktop/swaylock
-    ../naboo/desktop/wlogout
-    ../naboo/desktop/wpaperd
   ];
 
   services.paperless = {
@@ -79,20 +75,6 @@
     execWheelOnly = true;
   };
 
-  # Niri (from nixpkgs, no overlay)
-  programs.niri.enable = true;
-  services.displayManager.defaultSession = "niri";
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
-        user = "greeter";
-      };
-    };
-  };
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # User
   users.mutableUsers = true;
   users.users.cabero = {
@@ -110,7 +92,6 @@
     home.username = "cabero";
     home.homeDirectory = "/home/cabero";
     home.stateVersion = "25.11";
-    home.file.".config/niri/config.kdl".source = ../naboo/desktop/niri/config.kdl;
     home.pointerCursor = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
@@ -138,8 +119,38 @@
     wget
     killall
     htop
-    wl-clipboard
   ];
+
+  # Graphical specialisation
+  specialisation.graphical.configuration = {
+    imports = [
+      ../naboo/desktop/swayidle
+      ../naboo/desktop/swaylock
+      ../naboo/desktop/wlogout
+      ../naboo/desktop/wpaperd
+    ];
+
+    programs.niri.enable = true;
+    services.displayManager.defaultSession = "niri";
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+          user = "greeter";
+        };
+      };
+    };
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    home-manager.users.cabero = {
+      home.file.".config/niri/config.kdl".source = ../naboo/desktop/niri/config.kdl;
+    };
+
+    environment.systemPackages = with pkgs; [
+      wl-clipboard
+    ];
+  };
 
   system.stateVersion = "25.11";
 }
