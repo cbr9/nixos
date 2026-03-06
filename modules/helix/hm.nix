@@ -14,14 +14,6 @@
     ./settings.nix
   ];
 
-  programs.ruff = {
-    enable = true;
-    package = pkgs.unstable.ruff;
-    settings = {
-      line-length = 120;
-    };
-  };
-
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -37,6 +29,7 @@
       nodePackages.yaml-language-server
       typescript-language-server
       unstable.ty
+      unstable.ruff
       shellcheck
       unstable.pyrefly
       tombi
