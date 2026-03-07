@@ -46,6 +46,12 @@
     address = "0.0.0.0";
   };
 
+  services.immich = {
+    enable = true;
+    host = "0.0.0.0";
+    mediaLocation = "/data/immich";
+  };
+
   # Boot
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
