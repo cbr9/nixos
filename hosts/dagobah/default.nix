@@ -110,6 +110,11 @@
     "/opt/homebrew/bin"
   ];
 
+  nix.linux-builder = {
+    enable = true;
+    config.virtualisation.cores = 4;
+  };
+
   # Homebrew integration (for GUI apps not in nixpkgs or casks)
   homebrew = {
     enable = true;

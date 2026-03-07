@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +27,7 @@
   };
 
   outputs =
-    { ... }@inputs:
+    { self, ... }@inputs:
     let
       mkLib = nixpkgs: nixpkgs.lib.extend (final: prev: (import ./lib final));
       lib = mkLib inputs.nixpkgs;
@@ -120,6 +124,7 @@
       # Supported systems for devShells
       supportedSystems = [
         "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
       ];
       forAllSystems = lib.genAttrs supportedSystems;
@@ -150,6 +155,21 @@
         };
       };
 
+      deploy.nodes.endor = {
+        hostname = "endor";
+        fastConnection = true;
+        profiles.system = {
+          user = "root";
+          sshUser = "cabero";
+          path = inputs.deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.endor;
+        };
+      };
+
+      checks = forAllSystems (
+        system:
+        inputs.deploy-rs.lib.${system}.deployChecks self.deploy
+      );
+
       devShells = forAllSystems (
         system:
         let
@@ -167,6 +187,7 @@
               nix-prefetch-github
               just
               just-lsp
+              inputs.deploy-rs.packages.${system}.deploy-rs
             ];
           };
         }
