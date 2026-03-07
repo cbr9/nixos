@@ -23,6 +23,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ../../hosts/naboo/xdg.nix
     ../../modules/atuin
     ../../modules/bottom
     ../../modules/direnv
@@ -49,6 +50,7 @@
   services.immich = {
     enable = true;
     host = "0.0.0.0";
+    openFirewall = true;
     mediaLocation = "/data/immich";
   };
 
