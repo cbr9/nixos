@@ -35,6 +35,14 @@ in
         user = "cabero";
         hostname = "naboo";
       };
+      endor = {
+        user = "cabero";
+        hostname = "endor";
+        compression = true;
+        controlMaster = "auto";
+        controlPath = "~/.ssh/sockets/%r@%h-%p";
+        controlPersist = "600";
+      };
       "*" = {
         forwardAgent = true;
         identityAgent = lib.mkIf (agent != "") [
