@@ -20,6 +20,7 @@
       })
     ];
   };
+  programs.mosh.enable = true;
 
   imports = [
     ./hardware-configuration.nix
