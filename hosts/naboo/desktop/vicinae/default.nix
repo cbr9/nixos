@@ -24,12 +24,6 @@
       systemd = {
         enable = true;
       };
-      extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
-        bluetooth
-        nix
-        niri
-        wifi-commander
-      ];
     };
 
   };

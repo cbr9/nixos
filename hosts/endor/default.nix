@@ -20,7 +20,6 @@
       })
     ];
   };
-  programs.mosh.enable = true;
 
   imports = [
     ./hardware-configuration.nix
@@ -58,6 +57,8 @@
   # Boot
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
+
+  programs.mosh.enable = true;
 
   # Networking
   networking.hostName = "endor";

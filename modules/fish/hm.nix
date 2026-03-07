@@ -1,8 +1,24 @@
 {
   config,
+  darwinConfig ? null,
+  nixosConfig ? null,
   pkgs,
+  isDarwin ? false,
   ...
 }:
+let
+
+  systemConfig = if isDarwin then darwinConfig else nixosConfig;
+  cfg = systemConfig.programs._1password;
+  homeDir = config.home.homeDirectory;
+  agent =
+    if darwinConfig != null && cfg.enable then
+      "${homeDir}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    else if nixosConfig != null && cfg.enable then
+      "${homeDir}/.1password/agent.sock"
+    else
+      "";
+in
 {
   home.file = {
     ".config/fish/themes".source = ./themes;
@@ -31,6 +47,12 @@
       in
       # fish
       ''
+         # If SSH_AUTH_SOCK is NOT already set (meaning we are NOT in an SSH session),
+         #   # then point it to the local 1Password agent socket.
+            if not set -q SSH_AUTH_SOCK
+              set -gx SSH_AUTH_SOCK "${agent}"
+            end
+
         set -g fish_greeting ""
 
         fish_config theme choose "fish default"

@@ -28,7 +28,10 @@
         "nix-command"
         "flakes"
       ];
-      trusted-users = [ "@wheel" ];
+      trusted-users = [
+        "@wheel"
+        "cabero"
+      ];
 
       # Add community Cachix to binary cache
       builders-use-substitutes = true;
